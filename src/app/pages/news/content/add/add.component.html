@@ -1,4 +1,3 @@
-<app-sidebar></app-sidebar>
 <div class="d-flex flex-column-fluid">
     <!--begin::Container-->
     <div class=" container ">
@@ -108,7 +107,7 @@
                                               </div>
 
                                                   <input matInput formControlName="fromDate" [matDatepicker]="picker1"
-                                                         [(ngModel)]="dataModel.fromDate" (dateChange)="dataModel.fromDate=onValueChange($event)" >
+                                                         [(ngModel)]="dataModel.FromDate" (dateChange)="dataModel.FromDate=onValueChange($event)" >
                                                   <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                                   <mat-datepicker touchUi #picker1></mat-datepicker>
 
@@ -153,7 +152,7 @@
                                                     </h3>
                                                 </div>
                                                 <div class="card-body">
-                                                    <label for="kt-ckeditor-1"></label><textarea [(ngModel)]="dataModel.body" formControlName="ckeditor" name="kt-ckeditor-1" id="kt-ckeditor-1">
+                                                    <label for="kt-ckeditor-1"></label><textarea [(ngModel)]="dataModel.Body" formControlName="ckeditor" name="kt-ckeditor-1" id="kt-ckeditor-1">
 
                           </textarea>
                                                 </div>

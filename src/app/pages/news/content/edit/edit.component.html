@@ -114,7 +114,7 @@
                           <input matInput formControlName="fromDate"
                                  [matDatepicker]="picker1"
                                  [(ngModel)]="dataModel.CreatedDate"
-                                 (dateChange)="dataModel.fromDate=onValueChange($event)">
+                                 (dateChange)="dataModel.FromDate=onValueChange($event)">
                           <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                           <mat-datepicker touchUi #picker1></mat-datepicker>
                         </mat-form-field>

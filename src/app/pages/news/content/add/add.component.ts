@@ -93,7 +93,7 @@ export class NewsContentAddComponent implements OnInit, AfterViewInit {
   DataAddContent(): void {
     this.dataModel.Title = this.singUpContentForm.get('title').value;
     this.dataModel.Description = this.singUpContentForm.get('description').value;
-    // this.dataModel.fromDate = this.fromDate.nativeElement.value;
+    // this.dataModel.FromDate = this.FromDate.nativeElement.value;
     // this.dataModel.ExpireDate = this.expireDate.nativeElement.value;
     this.dataModel.RecordStatus = this.singUpContentForm.get('status').value;
     this.dataModel.Geolocationlatitude = this.lat;

@@ -18,6 +18,7 @@ import { ComponentOptionNewsCategoryModel } from 'src/app/core/models/news/compo
 import { ComponentModalDataModel } from 'src/app/core/models/base/componentModalDataModel';
 import { ComponentOptionSearchContentModel } from 'src/app/core/models/base/componentOptionSearchContentModel';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
+import { PublicHelper } from 'src/app/core/common/helper/publicHelper';
 
 
 @Component({
@@ -51,6 +52,7 @@ export class NewsContentListComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public dialog: MatDialog,
+    public publicHelper: PublicHelper
 
 
   ) {

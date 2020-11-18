@@ -256,22 +256,22 @@ export class NgbdDatepickerRange {
   fromDate: NgbDateStruct;
   toDate: NgbDateStruct;\n
   constructor(calendar: NgbCalendar) {
-    this.fromDate = calendar.getToday();
+    this.FromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }\n
   onDateChange(date: NgbDateStruct) {
-    if (!this.fromDate && !this.toDate) {
-      this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && after(date, this.fromDate)) {
+    if (!this.FromDate && !this.toDate) {
+      this.FromDate = date;
+    } else if (this.FromDate && !this.toDate && after(date, this.FromDate)) {
       this.toDate = date;
     } else {
       this.toDate = null;
-      this.fromDate = date;
+      this.FromDate = date;
     }
   }\n
-  isHovered = date => this.fromDate && !this.toDate && this.hoveredDate && after(date, this.fromDate) && before(date, this.hoveredDate);
-  isInside = date => after(date, this.fromDate) && before(date, this.toDate);
-  isFrom = date => equals(date, this.fromDate);
+  isHovered = date => this.FromDate && !this.toDate && this.hoveredDate && after(date, this.FromDate) && before(date, this.hoveredDate);
+  isInside = date => after(date, this.FromDate) && before(date, this.toDate);
+  isFrom = date => equals(date, this.FromDate);
   isTo = date => equals(date, this.toDate);
 }
 `,
@@ -775,7 +775,7 @@ export class DatepickerComponent implements OnInit {
   }
 
   constructor(calendar: NgbCalendar, config: NgbDatepickerConfig) {
-    this.fromDate = calendar.getToday();
+    this.FromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
 
     // customize default values of datepickers used by this component tree
@@ -792,24 +792,24 @@ export class DatepickerComponent implements OnInit {
   }
 
   onDateChange(date: NgbDateStruct) {
-    if (!this.fromDate && !this.toDate) {
-      this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && after(date, this.fromDate)) {
+    if (!this.FromDate && !this.toDate) {
+      this.FromDate = date;
+    } else if (this.FromDate && !this.toDate && after(date, this.FromDate)) {
       this.toDate = date;
     } else {
       this.toDate = null;
-      this.fromDate = date;
+      this.FromDate = date;
     }
   }
 
   isHovered = (date) =>
-    this.fromDate &&
+    this.FromDate &&
     !this.toDate &&
     this.hoveredDate &&
-    after(date, this.fromDate) &&
+    after(date, this.FromDate) &&
     // tslint:disable-next-line:semicolon
     before(date, this.hoveredDate);
-  isInside = (date) => after(date, this.fromDate) && before(date, this.toDate);
-  isFrom = (date) => equals(date, this.fromDate);
+  isInside = (date) => after(date, this.FromDate) && before(date, this.toDate);
+  isFrom = (date) => equals(date, this.FromDate);
   isTo = (date) => equals(date, this.toDate);
 }

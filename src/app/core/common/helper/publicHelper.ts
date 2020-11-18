@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {ErrorExcptionResultBase} from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
-import { CmsToastrService } from '../../cmsService/base/cmsToastr.service';
+import { CmsToastrService } from '../../services/base/cmsToastr.service';
 
 @Injectable({
   providedIn: 'root',
