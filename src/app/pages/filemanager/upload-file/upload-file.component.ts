@@ -13,7 +13,7 @@ import { FlowDirective, Transfer } from '@flowjs/ngx-flow';
 import { Subscription } from 'rxjs';
 import { ComponentOptionFileUploadModel } from 'src/app/core/models/files/componentOptionNewsCategoryModel';
 
-const URL =  environment.cmsServerConfig.configApiServerPath + 'FileContent/Upload/';
+const URL = environment.cmsServerConfig.configApiServerPath + 'FileContent/Upload/';
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
@@ -35,11 +35,11 @@ export class UploadFileComponent implements AfterViewInit, OnInit, OnDestroy {
   autoUploadSubscription: Subscription;
   flowOption: flowjs.FlowOptions;
   uploadViewImage = false;
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef) { }
   ngOnInit() {
     this.flowOption = {
       target: URL,
-      query: function (flowFile, flowChunk) {
+      query(flowFile, flowChunk) {
         if (flowFile.myparams) {
           return flowFile.myparams;
         }

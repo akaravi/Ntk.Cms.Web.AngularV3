@@ -1,0 +1,95 @@
+<section id="horizontal-form-layouts" dir="rtl">
+    <div class="row text-right">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header pb-2">
+                    <h4 class="card-title" id="horz-layout-basic">اضافه کردن گمپانی پیام رسان جدید</h4>
+                    <p class="mb-0">
+                        <span class="ml-3" *ngIf="(loadingStatus)">Loding ...</span>
+                    </p>
+                </div>
+                <div class="card-content">
+                    <div class="px-3" *ngIf="!(loadingStatus)">
+                        <form (ngSubmit)="onFormSubmit()" #vform="ngForm" class="form form-horizontal">
+                            <div class="form-body">
+                                <h4 class="form-section"><i class="ft-user"></i> اطلاعات الزامی</h4>
+                                <div class="form-group row">
+                                    <label class="col-md-3 label-control" for="Title">عنوان : </label>
+                                    <div class="col-md-9">
+                                        <input [(ngModel)]="dataModel.Title" id="Title" type="text" class="form-control" name="Title" #Title="ngModel" required minlength="4" maxlength="50" placeholder="عنوان" />
+                                        <small class="form-text text-muted danger" *ngIf="Title.errors?.required"> الزامی</small>
+                                        <small class="form-text text-muted danger" *ngIf="Title.errors?.minlength"> حداقل پنج
+                                            کاراکتر</small>
+                                        <small class="form-text text-muted danger" *ngIf="Title.errors?.maxlength"> حداکثر پنجاه
+                                            کاراکتر</small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 label-control" for="Status">وضعیت:</label>
+                                    <div class="col-md-9">
+                                        <fieldset class="form-group">
+                                            <select [(ngModel)]="dataModel.RecordStatus" id="Status" name="RecordStatus" #RecordStatus="ngModel" required class="form-control">
+                                                <option *ngFor="let item of dataModelEnumRecordStatusResult.ListItems; index as i;" value="{{item.Value}}">
+                                                    {{item.Key}}</option>
+                                            </select>
+                                            <small class="form-text text-muted danger" *ngIf="RecordStatus.errors?.required">
+                                                الزامی</small>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 label-control" for="Description">توضیحات : </label>
+                                    <div class="col-md-9">
+                                        <textarea [(ngModel)]="dataModel.Description" id="Description" name="Description" #Description="ngModel" rows="5" class="form-control"></textarea>
+                                        <small class="form-text text-muted danger" *ngIf="Description.errors?.required"> الزامی</small>
+                                    </div>
+                                </div>
+                                <h4 class="form-section"><i class="ft-file-text"></i> حسابداری / اکانتینگ</h4>
+                                <div class="form-group row">
+                                    <label class="col-md-12 label-control" for="ServiceAvailableCredit">مقدار اعتبار موجود از این سیستم در آن کمپانی : </label>
+                                    <div class="col-md-12">
+                                        <input [(ngModel)]="dataModel.ServiceAvailableCredit" id="ServiceAvailableCredit" type="number" class="form-control" name="ServiceAvailableCredit" #ServiceAvailableCredit="ngModel" required  placeholder="0" />
+                                        <small class="form-text text-muted danger" *ngIf="ServiceAvailableCredit.errors?.required"> الزامی</small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-12 label-control" for="ServiceSumCredit"> کل اعتبار ارسال شده به آن کمپانی : </label>
+                                    <div class="col-md-12">
+                                        <input [(ngModel)]="dataModel.ServiceSumCredit" id="ServiceSumCredit" type="number" class="form-control" name="ServiceSumCredit" #ServiceSumCredit="ngModel" required  placeholder="0" />
+                                        <small class="form-text text-muted danger" *ngIf="ServiceSumCredit.errors?.required"> الزامی</small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-12 label-control" for="UserAvailableCredit"> مقدار اعتبار موجود کاربران از این سیستم در این کمپانی : </label>
+                                    <div class="col-md-12">
+                                        <input [(ngModel)]="dataModel.UserAvailableCredit" id="UserAvailableCredit" type="number" class="form-control" name="UserAvailableCredit" #UserAvailableCredit="ngModel" required  placeholder="0" />
+                                        <small class="form-text text-muted danger" *ngIf="UserAvailableCredit.errors?.required"> الزامی</small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-12 label-control" for="UserSumCredit">   مجموع اعتبار ارسال شده کاربران به این کمپانی : </label>
+                                    <div class="col-md-12">
+                                        <input [(ngModel)]="dataModel.UserSumCredit" type="number" id="UserSumCredit" class="form-control" name="UserSumCredit" #UserSumCredit="ngModel" required  placeholder="0" />
+                                        <small class="form-text text-muted danger" *ngIf="UserSumCredit.errors?.required"> الزامی</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <small class="form-text text-muted ">{{formInfo.FormAlert}} </small>
+                                <small class="form-text text-muted danger">{{formInfo.FormError}} </small>
+                            </div>
+                            <div class="form-actions" *ngIf="formInfo.FormAllowSubmit">
+                                <button type="button" (click)="onFormCancel()" class="btn btn-raised btn-warning mr-1">
+                                    <i class="ft-x"></i> انصراف
+                                </button>
+                                <button type="submit" class="btn btn-raised btn-primary" [disabled]="!vform.form.valid">
+                                    <i class="fa fa-check-square-o"></i> ذخیره
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

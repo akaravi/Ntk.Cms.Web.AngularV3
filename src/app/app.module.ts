@@ -24,6 +24,7 @@ import { CoreAuthService, EnumDeviceType, EnumOperatingSystemType, TokenDeviceCl
 import { ToastrModule } from 'ngx-toastr';
 import { PersianCalendarService } from './core/common/pipe/PersianDatePipe/persian-date.service';
 import { AuthInterceptor } from './core/common/interceptor/auth-interceptor.service';
+import { CmsAuthGuard } from './core/services/core/auth.guard.service';
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -74,6 +75,8 @@ export function getHighlightLanguages() {
     NgbModule,
   ],
   providers: [
+    CmsAuthGuard,
+
     {
       provide: APP_INITIALIZER,
       useFactory: appInitializer,

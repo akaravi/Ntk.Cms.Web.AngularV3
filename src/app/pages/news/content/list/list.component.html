@@ -1,0 +1,160 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-xxl-2">
+      <div class="card card-custom card-stretch gutter-b" style="top: 140px; width: 100%">
+        <div class="card-header border-0 py-5">
+          <h3 class="card-title align-items-start flex-column">
+            <span class="card-label font-weight-bolder text-dark">دسته بندی اخبار</span>
+          </h3>
+          <div class="card-toolbar">
+            <p class="btn-wrapper">
+              <a (click)='onActionCategorySelect(null)'
+                 *ngIf="optionsCategorySelect && optionsCategorySelect?.data?.SelectId>0"
+                 class="btn btn-raised mr-1 shadow-z-2 btn-success">همه</a>
+              <a (click)="onActionContentCategoryAdd()"
+                 class="btn btn-raised mr-1 shadow-z-2 btn-info">اضافه</a>
+              <a (click)="onActionContentCategoryEdit()"
+                 *ngIf="optionsCategorySelect && optionsCategorySelect?.data?.SelectId>0"
+                 class="btn btn-raised mr-1 shadow-z-2 btn-warning">ویرایش</a>
+              <a (click)="onActionContentCategoryDelete()"
+                 *ngIf="optionsCategorySelect && optionsCategorySelect?.data?.SelectId>0"
+                 class="btn btn-raised mr-1 shadow-z-2 btn-danger">حذف</a>
+            </p>
+          </div>
+        </div>
+        <div class="card-body py-0">
+          <div class="table-responsive">
+            <app-news-category-select [options]="optionsCategorySelect"></app-news-category-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-10 col-xxl-10">
+      <div class="card card-custom card-stretch gutter-b" style="top: 140px; width: 100%">
+        <div class="card-header border-0 py-5">
+          <h3 class="card-title align-items-start flex-column" style="display: block">
+                    <span class="card-label font-weight-bolder text-dark">لیست اخبار<a (click)="openDialog()"></a>
+                    </span>
+            <span class="card-label font-weight-bolder text-dark"
+                  *ngIf="optionsCategorySelect && optionsCategorySelect?.data?.SelectId>0">
+                      ({{optionsCategorySelect && optionsCategorySelect?.data?.Select?.Title}})</span>
+          </h3>
+
+        </div>
+        <div class="card-toolbar">
+          <div class="bottom-wrapper">
+            <a
+              *ngIf="dataModelResult?.Access?.AccessAddRow && optionsCategorySelect && optionsCategorySelect?.data?.SelectId>0"
+              (click)="onActionbuttonNewRow()" class="btn btn-raised mr-1 shadow-z-2 btn-info">جدید</a>
+            <a *ngIf="dataModelResult?.Access?.AccessEditRow && tableContentSelected?.length>0"
+               (click)="onActionbuttonEditRow()" class="btn btn-raised mr-1 shadow-z-2 btn-warning">ویرایش</a>
+            <a *ngIf="dataModelResult?.Access?.AccessDeleteRow && tableContentSelected?.length>0"
+               (click)="onActionbuttonDeleteRow()" class="btn btn-raised mr-1 shadow-z-2 btn-danger">حذف</a>
+            <a *ngIf="dataModelResult?.Access?.AccessDeleteRow && tableContentSelected?.length>0"
+               (click)="onActionbuttonDeleteRow()" class="btn btn-raised mr-1 shadow-z-2 btn-danger">جستجو</a>
+            <a *ngIf="dataModelResult?.Access?.AccessWatchRow"
+               (click)="optionsSearch.data.hidden=!optionsSearch.data.hidden"
+               class="btn btn-raised mr-1 shadow-z-2 btn-success special-search">
+              <i class="fa fa-search fontavesome-small "></i>&nbsp;جستجوی پیشرفته&nbsp;&nbsp;<i
+              id="filter-btn-icon"
+              [className]="optionsSearch.data.hidden ? 'fa fa-toggle-off' : 'fa fa-toggle-on'"
+              aria-hidden="true"></i>
+            </a>
+            <a (click)="onActionbuttonStatus()" class="btn btn-raised mr-1 shadow-z-2 btn-secondary">آمار </a>
+            <a (click)="onActionbuttonExport()" class="btn btn-raised mr-1 shadow-z-2 btn-primary">خروجی
+              فایل</a>
+            <a (click)="onActionbuttonReload()" class="btn btn-raised mr-1 shadow-z-2 btn-success">بررسی
+              مجدد</a>
+          </div>
+          <div class="query-search">
+            <app-cms-search-content-list [options]="optionsSearch"></app-cms-search-content-list>
+            <app-cms-export-content-list></app-cms-export-content-list>
+            <app-cms-statist-content-list></app-cms-statist-content-list>
+          </div>
+        </div>
+        <hr>
+        <div class="card-body py-0">
+          <div class="table-responsive border-top">
+            <img *ngIf="loadingStatus" src="assets/media/1_9EBHIOzhE1XfMYoKz1JcsQ.gif" style="
+                          z-index: 999;
+                          position: fixed;
+                          margin-top: -192px;
+                          width: 230px;
+                          left: 700px;">
+            <table mat-table [dataSource]="dataModelResult.ListItems" multiTemplateDataRows
+                   class="mat-elevation-z8">
+              <!-- Position Column -->
+              <ng-container matColumnDef="Id">
+                <th mat-header-cell *matHeaderCellDef>شناسه</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.Id }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="LinkSiteId">
+                <th mat-header-cell *matHeaderCellDef>شناسه سایت</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.LinkSiteId }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="RecordStatus">
+                <th mat-header-cell *matHeaderCellDef>وضعیت</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.RecordStatus }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Title">
+                <th mat-header-cell *matHeaderCellDef>عنوان</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.Title }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="CreatedDate">
+                <th mat-header-cell *matHeaderCellDef>ناریخ ایجاد</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ publicHelper.LocaleDate(element.CreatedDate) }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="UpdatedDate">
+                <th mat-header-cell *matHeaderCellDef>تاریخ ویرابش</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ publicHelper.LocaleDate(element.UpdatedDate) }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="operation">
+                <th mat-header-cell *matHeaderCellDef>عملیات</th>
+                <td mat-cell *matCellDef="let element">
+                  <a (click)="onClickComment(element.Id)" class="btn btn-outline-primary">اظهار نظر</a>
+                </td>
+              </ng-container>
+              <!-- Position Column -->
+              <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+              <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+                  <div class="example-element-detail"
+                       [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                    <div class="example-element-diagram" style="width: 30px!important;height: 30px!important;">
+                      <div class="example-element-position">
+                        <img src="{{element.MainImageSrc}}">
+                      </div>
+                      <div class="example-element-symbol"> {{element.Description}} </div>
+                    </div>
+                    <div class="example-element-description">
+                      {{element.Description}}
+                      <span class="example-element-description-attribution"> -- Wikipedia </span>
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"
+                  [class.example-expanded-row]="displayedColumns === row"
+                  (click)="onActionTableSelect(row);expandedElement = displayedColumns === row ? null : row">
+              </tr>
+              <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

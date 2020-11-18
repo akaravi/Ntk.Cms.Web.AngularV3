@@ -1,0 +1,132 @@
+
+<section id="horizontal-form-layouts" dir="rtl">
+  <div class="row text-right">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-header pb-2">
+                  <h4 class="card-title" id="horz-layout-basic">اضافه کردن گمپانی پیام رسان جدید</h4>
+                  <p class="mb-0">
+                      <span class="ml-3" *ngIf="(loadingStatus)">Loding ...</span>
+                  </p>
+              </div>
+              <div class="card-content">
+                  <div class="px-3" *ngIf="!(loadingStatus)">
+
+                      <form (ngSubmit)="onFormSubmit()" #vform="ngForm" class="form form-horizontal">
+
+                          <div class="form-body">
+                              <h4 class="form-section"><i class="ft-user"></i> اطلاعات الزامی</h4>
+
+                              <div class="form-group row">
+                                  <label class="col-md-3 label-control" for="Title">عنوان : </label>
+                                  <div class="col-md-9">
+                                      <input [(ngModel)]="dataModel.Title" type="text" class="form-control" name="Title" #Title="ngModel" required minlength="4" maxlength="50" placeholder="عنوان" />
+                                      <small class="form-text text-muted danger" *ngIf="Title.errors?.required"> الزامی</small>
+                                      <small class="form-text text-muted danger" *ngIf="Title.errors?.minlength"> حداقل پنج
+                                          کاراکتر</small>
+                                      <small class="form-text text-muted danger" *ngIf="Title.errors?.maxlength"> حداکثر پنجاه
+                                          کاراکتر</small>
+                                  </div>
+                              </div>
+
+
+                              <div class="form-group row">
+                                  <label class="col-md-3 label-control" for="Status">وضعیت:</label>
+                                  <div class="col-md-9">
+                                      <fieldset class="form-group">
+                                          <select [(ngModel)]="dataModel.RecordStatus" name="RecordStatus" #RecordStatus="ngModel" required class="form-control">
+                                              <option *ngFor="let item of this.dataModelEnumRecordStatusResult.ListItems; index as i;" value="{{item.Value}}">
+                                                  {{item.Key}}</option>
+                                          </select>
+                                          <small class="form-text text-muted danger" *ngIf="RecordStatus.errors?.required">
+                                              الزامی</small>
+                                      </fieldset>
+                                  </div>
+                              </div>
+
+
+
+                              <div class="form-group row">
+                                <label class="col-md-3 label-control" for="Memo">توضیحات : </label>
+                                <div class="col-md-9">
+                                    <textarea [(ngModel)]="dataModel.Memo" name="Memo" #Memo="ngModel" rows="5" class="form-control"></textarea>
+                                    <small class="form-text text-muted danger" *ngIf="Memo.errors?.required"> الزامی</small>
+
+                                </div>
+                            </div>
+
+
+
+
+                              <div class="form-group row">
+                                <label class="col-md-3 label-control" for="CurrencyUnitRatioByShop">ضریب فروشگاه : </label>
+                                <div class="col-md-9">
+                                    <input [(ngModel)]="dataModel.CurrencyUnitRatioByShop" type="number" class="form-control" name="CurrencyUnitRatioByShop" #CurrencyUnitRatioByShop="ngModel" required minlength="4" min="0" placeholder="عنوان" />
+                                    <small class="form-text text-muted danger" *ngIf="CurrencyUnitRatioByShop.errors?.required"> الزامی</small>
+                             
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                              <label class="col-md-3 label-control" for="CurrencyUnitRatioByShop">ضریب فروشگاه : </label>
+                              <div class="col-md-9">
+                                  <input [(ngModel)]="dataModel.CurrencyUnitRatioByShop" type="number" class="form-control" name="CurrencyUnitRatioByShop" #CurrencyUnitRatioByShop="ngModel" required minlength="4" min="0" placeholder="0" />
+                                  <small class="form-text text-muted danger" *ngIf="CurrencyUnitRatioByShop.errors?.required"> الزامی</small>
+                           
+                              </div>
+                          </div>
+                          
+                          <div class="form-group row">
+                            <label class="col-md-3 label-control" for="MinTransactionAmount">حداقل تراکنش : </label>
+                            <div class="col-md-9">
+                                <input [(ngModel)]="dataModel.MinTransactionAmount" type="number" class="form-control" name="MinTransactionAmount" #MinTransactionAmount="ngModel" required  min="0" placeholder="0" />
+                                <small class="form-text text-muted danger" *ngIf="MinTransactionAmount.errors?.required"> الزامی</small>
+                         
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-md-3 label-control" for="MaxTransactionAmount">حداکثر تراکنش : </label>
+                          <div class="col-md-9">
+                              <input [(ngModel)]="dataModel.MaxTransactionAmount" type="number" class="form-control" name="MaxTransactionAmount" #MaxTransactionAmount="ngModel" required min="0" placeholder="0" />
+                              <small class="form-text text-muted danger" *ngIf="MaxTransactionAmount.errors?.required"> الزامی</small>
+                       
+                          </div>
+                      </div>
+                      
+
+
+                      <div class="form-group row">
+                        <label class="col-md-3 label-control" for="FixFeeTransactionAmount">ثابت : </label>
+                        <div class="col-md-9">
+                            <input [(ngModel)]="dataModel.FixFeeTransactionAmount" type="number" class="form-control" name="FixFeeTransactionAmount" #FixFeeTransactionAmount="ngModel" required  min="0" placeholder="0" />
+                            <small class="form-text text-muted danger" *ngIf="FixFeeTransactionAmount.errors?.required"> الزامی</small>
+                     
+                        </div>
+                    </div>
+                    
+
+
+                          </div>
+
+                          <div class="form-actions">
+                              <small class="form-text text-muted ">{{formInfo.FormAlert}} </small>
+                              <small class="form-text text-muted danger">{{formInfo.FormError}} </small>
+                          </div>
+                          <div class="form-actions" *ngIf="formInfo.FormAllowSubmit">
+
+                              <button type="button" (click)="onFormCancel()" class="btn btn-raised btn-warning mr-1">
+                                  <i class="ft-x"></i> انصراف
+                              </button>
+                              <button type="submit" class="btn btn-raised btn-primary" [disabled]="!vform.form.valid">
+                                  <i class="fa fa-check-square-o"></i> ذخیره
+                              </button>
+
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

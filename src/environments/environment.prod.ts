@@ -7,6 +7,7 @@ export const environment = {
   isMockEnabled: true,
   apiUrl: 'api',
   // apiUrl: 'mysite.com/api'
+  leafletUrl: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
   cmsServerConfig: {
     configApiRetry: 1,
     configApiServerPath: 'https://apicms.ir/api/v1/',
