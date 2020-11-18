@@ -8,7 +8,7 @@ import {
   CoreAuthService,
 } from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
-import { CmsToastrService } from 'src/app/services/base/cmsToastr.service';
+import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 
 
 @Component({

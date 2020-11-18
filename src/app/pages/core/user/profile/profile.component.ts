@@ -1,6 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ToastrService} from 'ngx-toastr';
-import {PublicHelper} from 'app/@cms/cmsCommon/helper/publicHelper';
 import {FormGroup, FormControl, Validators, NgForm} from '@angular/forms';
 import {
     AuthUserChangePasswordModel,
@@ -8,8 +6,8 @@ import {
     CoreUserModel,
     CoreUserService,
 } from 'ntk-cms-api';
-import {CmsToastrService} from 'app/@cms/cmsService/base/cmsToastr.service';
 import {AccessModel} from 'ntk-cms-api/lib/models/entity/base/accessModel';
+import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 
 @Component({
     selector: 'app-profile',
@@ -30,7 +28,6 @@ export class CoreUserProfileComponent implements OnInit {
     constructor(
         private coreUserService: CoreUserService,
         private toastrService: CmsToastrService,
-        private publicHelper: PublicHelper,
         private coreAuthService: CoreAuthService
     ) {
     }
@@ -66,10 +63,7 @@ export class CoreUserProfileComponent implements OnInit {
                 this.coreUserService.SetCorrectUser(this.CorrectUserInfo);
             },
             (error) => {
-                this.toastrService.toastr.error(
-                    this.publicHelper.CheckError(error),
-                    'خطا در ورود'
-                );
+                this.toastrService.typeError(error);
             }
         );
     }
@@ -80,10 +74,7 @@ export class CoreUserProfileComponent implements OnInit {
                 this.modelDataAccess = next.Access;
             },
             (error) => {
-                this.toastrService.toastr.error(
-                    this.publicHelper.CheckError(error),
-                    'خطا در ورود'
-                );
+                this.toastrService.typeError(error);
             }
         );
     }
@@ -116,10 +107,7 @@ export class CoreUserProfileComponent implements OnInit {
                 }
             },
             (error) => {
-                this.toastrService.toastr.error(
-                    this.publicHelper.CheckError(error),
-                    'خطا در تغییر پسورد'
-                );
+                this.toastrService.typeError(error);
             }
         );
     }
@@ -141,10 +129,7 @@ export class CoreUserProfileComponent implements OnInit {
                 }
             },
             (error) => {
-                this.toastrService.toastr.error(
-                    this.publicHelper.CheckError(error),
-                    'خطا در ثبت تغییرات'
-                );
+                this.toastrService.typeError(error);
             }
         );
     }

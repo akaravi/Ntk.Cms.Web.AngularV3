@@ -6,7 +6,10 @@ const routes: Routes = [
   {
     path: '',
     children: [
-
+      {
+        path: 'auth',
+        loadChildren: () => import('./auth/coreAuth.module').then(m => m.CoreAuthModule),
+      },
       {
         path: 'user',
         loadChildren: () => import('../core/user/coreUser.module').then(m => m.CoreUserModule),

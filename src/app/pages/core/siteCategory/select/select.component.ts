@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PublicHelper } from 'app/@cms/cmsCommon/helper/publicHelper';
 import {
   CoreModuleService,
   CoreSiteCategoryModuleService,
@@ -9,7 +8,7 @@ import {
   FilterDataModel,
   FilterModel,
 } from 'ntk-cms-api';
-import { CmsToastrService } from 'app/@cms/cmsService/base/cmsToastr.service';
+import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 
 @Component({
   selector: 'app-core-site-category-select',
@@ -30,7 +29,6 @@ export class CoreSiteCategorySelectComponent implements OnInit {
     private coreSiteCategoryModuleService: CoreSiteCategoryModuleService,
     private coreModuleService: CoreModuleService,
     private toastrService: CmsToastrService,
-    private publicHelper: PublicHelper
   ) {}
 
   ngOnInit() {
@@ -48,10 +46,7 @@ export class CoreSiteCategorySelectComponent implements OnInit {
           }
         },
         (error) => {
-          this.toastrService.toastr.error(
-            this.publicHelper.CheckError(error),
-            'خطا در دریافت اطلاعات وب سایتها'
-          );
+          this.toastrService.typeError(error);
         }
       )
     );
@@ -100,19 +95,13 @@ export class CoreSiteCategorySelectComponent implements OnInit {
                     }
                   },
                   (error2) => {
-                    this.toastrService.toastr.error(
-                      this.publicHelper.CheckError(error2),
-                      'خطا در دریافت اطلاعات وب سایتها'
-                    );
+                    this.toastrService.typeError(error2);
                   }
                 );
             }
           },
           (error) => {
-            this.toastrService.toastr.error(
-              this.publicHelper.CheckError(error),
-              'خطا در دریافت اطلاعات وب سایتها'
-            );
+            this.toastrService.typeError(error);
           }
         )
     );

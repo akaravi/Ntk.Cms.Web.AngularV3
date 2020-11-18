@@ -8,7 +8,7 @@ import {
   ErrorExcptionResult,
   FilterModel,
 } from 'ntk-cms-api';
-import { CmsToastrService } from 'src/app/services/base/cmsToastr.service';
+import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 
 

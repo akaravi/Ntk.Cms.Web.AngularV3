@@ -16,7 +16,10 @@ import {
 } from 'ntk-cms-api';
 
 @NgModule({
-  imports: [CommonModule, CoreRoutes],
+  imports: [
+    CommonModule,
+    CoreRoutes
+  ],
   declarations: [],
   exports: [],
   providers: [

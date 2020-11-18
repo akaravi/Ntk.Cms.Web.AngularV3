@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-coreSiteCategoryEdit',
+  selector: 'app-core-site-category-edit',
   templateUrl: './coreSiteCategoryEdit.component.html',
   styleUrls: ['./coreSiteCategoryEdit.component.scss']
 })

@@ -1,7 +1,7 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TranslateModule } from '@ngx-translate/core';
@@ -21,6 +21,9 @@ import scss from 'highlight.js/lib/languages/scss';
 import typescript from 'highlight.js/lib/languages/typescript';
 import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
 import { CoreAuthService, EnumDeviceType, EnumOperatingSystemType, TokenDeviceClientInfoDtoModel } from 'ntk-cms-api';
+import { ToastrModule } from 'ngx-toastr';
+import { PersianCalendarService } from './core/common/pipe/PersianDatePipe/persian-date.service';
+import { AuthInterceptor } from './core/common/interceptor/auth-interceptor.service';
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -50,6 +53,13 @@ export function getHighlightLanguages() {
     BrowserAnimationsModule,
     SplashScreenModule,
     TranslateModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      enableHtml: true,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      closeButton: true,
+    }),
     HttpClientModule,
     HighlightModule,
     ClipboardModule,
@@ -75,6 +85,10 @@ export function getHighlightLanguages() {
       useValue: {
         languages: getHighlightLanguages,
       },
+    },
+    PersianCalendarService,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
     },
     CoreAuthService
   ],
