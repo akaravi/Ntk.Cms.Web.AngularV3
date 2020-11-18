@@ -1,10 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {NewsCommentService, NewsContentModel} from 'ntk-cms-api';
-import {ActivatedRoute} from '@angular/router';
-import {FilterModel, FilterDataModel} from 'ntk-cms-api';
-import {PublicHelper} from '../../../../../core/cmsCommon/helper/publicHelper';
-import {ComponentOptionSearchContentModel} from '../../../../../core/cmsComponentModels/base/componentOptionSearchContentModel';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
+import { NewsCommentService, NewsContentModel } from 'ntk-cms-api';
+import { ActivatedRoute } from '@angular/router';
+import { FilterModel, FilterDataModel } from 'ntk-cms-api';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { ComponentOptionSearchContentModel } from 'src/app/core/models/base/componentOptionSearchContentModel';
 
 
 @Component({
@@ -13,8 +12,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   styleUrls: ['./comment.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
@@ -32,7 +31,7 @@ export class CommentComponent implements OnInit {
 
   constructor(private newsCommentService: NewsCommentService,
               private activatedRoute: ActivatedRoute,
-              public publicHelper: PublicHelper) {
+  ) {
   }
 
   columnsToDisplay: string[] = ['Id', 'Writer'];
@@ -47,7 +46,7 @@ export class CommentComponent implements OnInit {
     filterModel.Filters = [];
     const filter = new FilterDataModel();
     filter.PropertyName = 'linkContentid';
-    filter.value = this.activatedRoute.snapshot.params.id;
+    filter.Value = this.activatedRoute.snapshot.params.id;
     filterModel.Filters.push(filter);
 
     this.newsCommentService.ServiceGetAll(filterModel).subscribe((res) => {
