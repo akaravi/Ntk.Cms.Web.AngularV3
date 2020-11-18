@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { PublicHelper } from 'app/@cms/cmsCommon/helper/publicHelper';
+
 import {
   CaptchaModel,
   CoreAuthService,
@@ -12,7 +12,8 @@ import {
   ErrorExcptionResult,
   FilterModel,
 } from 'ntk-cms-api';
-import { CmsToastrService } from 'app/@cms/cmsService/base/cmsToastr.service';
+import { CmsToastrService } from 'src/app/services/base/cmsToastr.service';
+
 
 @Component({
   selector: 'app-cms-site-add',
@@ -43,14 +44,12 @@ export class CoreSiteAddComponent implements OnInit {
 
   constructor(
     private toastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
     private coreSiteService: CoreSiteService,
-    private coreSiteCategoryModuleService: CoreSiteCategoryModuleService,
     private coreAuthService: CoreAuthService,
 
     private coreModuleService: CoreModuleService,
     private coreSiteCategoryService: CoreSiteCategoryService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.GetModelInfo();
@@ -66,10 +65,7 @@ export class CoreSiteAddComponent implements OnInit {
         }
       },
       (error) => {
-        this.toastrService.toastr.error(
-          this.publicHelper.CheckError(error),
-          'خطا در دریافت لیست دامنه های قابل استفاده'
-        );
+        this.toastrService.typeError(error);
       }
     );
   }
@@ -81,10 +77,7 @@ export class CoreSiteAddComponent implements OnInit {
         }
       },
       (error) => {
-        this.toastrService.toastr.error(
-          this.publicHelper.CheckError(error),
-          'خطا در دریافت مدل'
-        );
+        this.toastrService.typeError(error);
       }
     );
   }
@@ -100,10 +93,7 @@ export class CoreSiteAddComponent implements OnInit {
           }
         },
         (error) => {
-          this.toastrService.toastr.error(
-            this.publicHelper.CheckError(error),
-            'خطا در دریافت اطلاعات وب سایتها'
-          );
+          this.toastrService.typeError(error);
         }
       )
     );
@@ -125,10 +115,7 @@ export class CoreSiteAddComponent implements OnInit {
             }
           },
           (error2) => {
-            this.toastrService.toastr.error(
-              this.publicHelper.CheckError(error2),
-              'خطا در دریافت اطلاعات وب سایتها'
-            );
+            this.toastrService.typeError(error2);
           }
         )
     );
@@ -147,10 +134,7 @@ export class CoreSiteAddComponent implements OnInit {
             this.dateModleInput.onActionAddFirstSite(next);
           },
           (error) => {
-            this.toastrService.toastr.error(
-              this.publicHelper.CheckError(error),
-              'خطا در ساخت وب سایت'
-            );
+            this.toastrService.typeError(error);
           }
         )
       );
@@ -162,10 +146,7 @@ export class CoreSiteAddComponent implements OnInit {
             }
           },
           (error) => {
-            this.toastrService.toastr.error(
-              this.publicHelper.CheckError(error),
-              'خطا در ساخت وب سایت'
-            );
+            this.toastrService.typeError(error);
           }
         )
       );
@@ -178,10 +159,7 @@ export class CoreSiteAddComponent implements OnInit {
           this.captchaModel = next.Item;
         },
         (error) => {
-          this.toastrService.toastr.error(
-            this.publicHelper.CheckError(error),
-            'خطا در دریافت عکس کپچا'
-          );
+          this.toastrService.typeError(error);
         }
       )
     );

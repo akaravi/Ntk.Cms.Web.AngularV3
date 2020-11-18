@@ -20,6 +20,7 @@ import json from 'highlight.js/lib/languages/json';
 import scss from 'highlight.js/lib/languages/scss';
 import typescript from 'highlight.js/lib/languages/typescript';
 import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
+import { CoreAuthService, EnumDeviceType, EnumOperatingSystemType, TokenDeviceClientInfoDtoModel } from 'ntk-cms-api';
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -54,9 +55,9 @@ export function getHighlightLanguages() {
     ClipboardModule,
     environment.isMockEnabled
       ? HttpClientInMemoryWebApiModule.forRoot(FakeAPIService, {
-          passThruUnknownUrl: true,
-          dataEncapsulation: false,
-        })
+        passThruUnknownUrl: true,
+        dataEncapsulation: false,
+      })
       : [],
     AppRoutingModule,
     InlineSVGModule.forRoot(),
@@ -75,7 +76,40 @@ export function getHighlightLanguages() {
         languages: getHighlightLanguages,
       },
     },
+    CoreAuthService
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private coreAuthService: CoreAuthService) {
+    // karavi:Important For Test To Local Service
+    if (environment.cmsServerConfig.configApiServerPath && environment.cmsServerConfig.configApiServerPath.length > 0) {
+      this.coreAuthService.setConfig(environment.cmsServerConfig.configApiServerPath);
+    }
+
+    const DeviceToken = this.coreAuthService.getDeviceToken();
+    if (!DeviceToken || DeviceToken.length === 0) {
+      const model: TokenDeviceClientInfoDtoModel = {
+        SecurityKey: environment.cmsTokenConfig.SecurityKey,
+        ClientMACAddress: '',
+        OSType: EnumOperatingSystemType.none,
+        DeviceType: EnumDeviceType.WebSite,
+        PackageName: '',
+        AppBuildVer: 0,
+        AppSourceVer: '',
+        Country: '',
+        DeviceBrand: '',
+        Language: '',
+        LocationLat: '',
+        LocationLong: '',
+        SimCard: '',
+        NotificationId: ''
+
+      };
+
+
+      this.coreAuthService.ServiceGetTokenDevice(model).toPromise();
+    }
+  }
+
+}

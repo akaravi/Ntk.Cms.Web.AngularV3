@@ -18,19 +18,19 @@
                                         <p class="card-text mb-3">
                                             فرم زیر را برای ایجاد یک حساب کاربری جدید پر کنید.
                                         </p>
-                                        <input [(ngModel)]="model.name" name="name" type="text" class="form-control mb-3" placeholder="نام" />
-                                        <input [(ngModel)]="model.family" name="family" type="text" class="form-control mb-3" placeholder="نام خانوادگی" />
-                                        <input [(ngModel)]="model.email" name="email" type="email" class="form-control mb-3" placeholder="ایمیل" />
-                                        <input [(ngModel)]="model.mobile" name="mobile" type="email" class="form-control mb-3" placeholder="شماره همراه 09120000000" />
+                                        <input [(ngModel)]="model.Name" name="name" type="text" class="form-control mb-3" placeholder="نام" />
+                                        <input [(ngModel)]="model.Family" name="family" type="text" class="form-control mb-3" placeholder="نام خانوادگی" />
+                                        <input [(ngModel)]="model.Email" name="email" type="email" class="form-control mb-3" placeholder="ایمیل" />
+                                        <input [(ngModel)]="model.Mobile" name="mobile" type="email" class="form-control mb-3" placeholder="شماره همراه 09120000000" />
                                         <input [(ngModel)]="model.Password" name="password" type="password" class="form-control mb-3" placeholder="رمز عبور" />
-                                        <input [(ngModel)]="model.rePassword" type="password" name="repassword" class="form-control mb-3" placeholder="تکرار رمز عبور" />
+                                        <input [(ngModel)]="model.RePassword" type="password" name="repassword" class="form-control mb-3" placeholder="تکرار رمز عبور" />
 
 
-                                        <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()">
-                                        <input [(ngModel)]="model.captchaText" type="captchaText" name="captchaText" class="form-control mb-3" placeholder="محتوای عکس" />
+                                        <img src="{{captchaModel.Image}}" (click)="onCaptchaOrder()">
+                                        <input [(ngModel)]="model.CaptchaText" type="captchaText" name="captchaText" class="form-control mb-3" placeholder="محتوای عکس" />
 
                                         <div class="custom-control custom-checkbox custom-control-inline mb-3">
-                                            <input [(ngModel)]="model.roulaccespt" name="roulaccespt" type="checkbox" id="customCheckboxInline1" class="custom-control-input" checked />
+                                            <input [(ngModel)]="model.Roulaccespt" name="roulaccespt" type="checkbox" id="customCheckboxInline1" class="custom-control-input" checked />
                                             <label class="custom-control-label" for="customCheckboxInline1">
                                                 من شرایط و ضوابط را میپذیرم
                                             </label>
@@ -46,7 +46,7 @@
                                             </div>
                                             <div class="login-btn">
                                                 <button class="btn btn-outline-primary">
-                                                    <a [routerLink]="[_cmsUiConfig.Pathlogin]" class="text-decoration-none">
+                                                    <a [routerLink]="[cmsUiConfig.Pathlogin]" class="text-decoration-none">
                                                         بازگشت به صفحه ورود
                                                     </a>
                                                 </button>

@@ -1,6 +1,6 @@
 {
-  "name": "metronic-angular-demo1",
-  "version": "7.1.2",
+  "name": "ntk-cms-web-angular",
+  "version": "1.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -30,6 +30,7 @@
     "angular-in-memory-web-api": "^0.11.0",
     "apexcharts": "^3.20.0",
     "bootstrap": "^4.5.0",
+    "jalali-moment": "^3.3.8",
     "clipboard": "^2.0.6",
     "highlight.js": "^9.17.1",
     "moment": "^2.27.0",
@@ -38,6 +39,9 @@
     "ngx-clipboard": "^13.0.1",
     "ngx-highlightjs": "3.0.3",
     "ngx-perfect-scrollbar": "^9.0.0",
+    "ngx-persian": "^1.3.1",
+    "ngx-toastr": "^13.1.0",
+    "ngx-treeview": "^10.0.2",
     "ntk-cms-api": "^1.0.71",
     "object-path": "^0.11.4",
     "perfect-scrollbar": "^1.5.0",

@@ -1,17 +1,16 @@
+import { environment } from 'src/environments/environment';
 import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
-import { Store } from '@ngrx/store';
-import * as fromStore from '../../../../cmsStore';
-import { PublicHelper } from 'app/@cms/cmsCommon/helper/publicHelper';
+
 import {
   AuthUserSignInModel,
   CaptchaModel,
   CoreAuthService,
 } from 'ntk-cms-api';
-import { CmsToastrService } from 'app/@cms/cmsService/base/cmsToastr.service';
-import { environment } from '../../../../../../environments/environment';
+import { CmsToastrService } from 'src/app/services/base/cmsToastr.service';
+
 @Component({
   selector: 'app-cms-login',
   templateUrl: './login.component.html',
@@ -30,8 +29,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private coreAuthService: CoreAuthService,
     private toastrService: CmsToastrService,
-    private store: Store<fromStore.State>,
-    private publicHelper: PublicHelper
   ) {}
   ngOnInit() {
     this.model.IsRemember = false;
@@ -55,7 +52,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.coreAuthService.ServiceSigninUser(this.model).subscribe(
         (next) => {
           if (next.IsSuccess) {
-            this.store.dispatch(new fromStore.InitHub());
             if (this.returnUrl === null || this.returnUrl === undefined) {
               this.returnUrl = environment.cmsUiConfig.PathSelectSite;
             }
@@ -66,10 +62,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         },
         (error) => {
           this.onCaptchaOrder();
-          this.toastrService.toastr.error(
-            this.publicHelper.CheckError(error),
-            'خطا در ورود'
-          );
+          this.toastrService.typeError(error);
+
         }
       )
     );
@@ -82,10 +76,8 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.captchaModel = next.Item;
         },
         (error) => {
-          this.toastrService.toastr.error(
-            this.publicHelper.CheckError(error),
-            'خطا در دریافت عکس کپچا'
-          );
+          this.toastrService.typeError(error);
+
         }
       )
     );

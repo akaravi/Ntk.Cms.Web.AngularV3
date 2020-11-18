@@ -21,7 +21,7 @@ export class LanguageSelectorComponent implements OnInit {
     {
       lang: 'fa',
       name: 'فارسی',
-      flag: './assets/media/svg/flags/226-united-states.svg',
+      flag: './assets/media/svg/flags/iran.svg',
     },
     {
       lang: 'en',

@@ -2,16 +2,14 @@ import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Store } from '@ngrx/store';
-import * as fromStore from '../../../../cmsStore';
-import { PublicHelper } from 'app/@cms/cmsCommon/helper/publicHelper';
-import { environment } from 'environments/environment';
 import {
   AuthUserSignUpModel,
   CaptchaModel,
   CoreAuthService,
 } from 'ntk-cms-api';
-import { CmsToastrService } from 'app/@cms/cmsService/base/cmsToastr.service';
+import { environment } from 'src/environments/environment';
+import { CmsToastrService } from 'src/app/services/base/cmsToastr.service';
+
 
 @Component({
   selector: 'app-cms-register-page',
@@ -24,15 +22,14 @@ export class RegisterComponent implements OnInit, OnDestroy {
   model: AuthUserSignUpModel = new AuthUserSignUpModel();
   captchaModel: CaptchaModel = new CaptchaModel();
   returnUrl: any = '';
-  _cmsUiConfig = environment.cmsUiConfig;
+  cmsUiConfig = environment.cmsUiConfig;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private coreAuthService: CoreAuthService,
     private toastrService: CmsToastrService,
-    private store: Store<fromStore.State>,
-    private publicHelper: PublicHelper
-  ) {}
+
+  ) { }
   ngOnInit() {
     this.subManager.add(
       this.route.queryParams.subscribe(
@@ -52,7 +49,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
       this.coreAuthService.ServiceSignupUser(this.model).subscribe(
         (next) => {
           if (next.IsSuccess) {
-            this.store.dispatch(new fromStore.InitHub());
             if (this.returnUrl === null || this.returnUrl === undefined) {
               this.returnUrl = environment.cmsUiConfig.Pathlogin;
             }
@@ -62,10 +58,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
           }
         },
         (error) => {
-          this.toastrService.toastr.error(
-            this.publicHelper.CheckError(error),
-            'خطا در ثبت نام'
-          );
+          this.toastrService.typeError(error);
+
         }
       )
     );
@@ -77,10 +71,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
           this.captchaModel = next.Item;
         },
         (error) => {
-          this.toastrService.toastr.error(
-            this.publicHelper.CheckError(error),
-            'خطا در دریافت عکس کپچا'
-          );
+          this.toastrService.typeError(error);
+
         }
       )
     );

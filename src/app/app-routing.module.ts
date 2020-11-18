@@ -14,6 +14,16 @@ export const routes: Routes = [
       import('./modules/errors/errors.module').then((m) => m.ErrorsModule),
   },
   {
+    path: 'core',
+    loadChildren: () =>
+      import('./pages/core/core.module').then((m) => m.CoreModule),
+  },
+  {
+    path: 'news',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
     path: '',
     canActivate: [AuthGuard],
     loadChildren: () =>
@@ -26,4 +36,4 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
