@@ -1,0 +1,989 @@
+<!--User Profile Starts-->
+<!--Basic User Details Starts-->
+<section id="user-profile">
+    <div class="row">
+        <div class="col-12">
+            <div class="card profile-with-cover">
+                <div class="card-img-top img-fluid bg-cover height-300"
+                    style="background: url('assets/img/photos/14.jpg') 50%;"></div>
+                <div class="media profil-cover-details row">
+                    <div class="col-5">
+                        <div class="align-self-start halfway-fab pl-3 pt-2">
+                            <div class="text-left">
+                                <h3 class="card-title white">{{CorrectUserInfo?.Name}} {{CorrectUserInfo?.LastName}}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="align-self-center halfway-fab text-center">
+                            <a class="profile-image">
+                                <img src="assets/img/portrait/avatars/avatar-08.png"
+                                    class="rounded-circle img-border gradient-summer width-100" alt="Card image">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                    </div>
+                </div>
+                <div class="profile-cover-buttons">
+                    <div class="media-body halfway-fab align-self-end">
+                        <div class="text-right d-none d-sm-none d-md-none d-lg-block">
+                            <button type="button" class="btn btn-primary btn-raised mr-2"><i class="fa fa-plus"></i>
+                                دنبال کنید</button>
+                            <button type="button" class="btn btn-success btn-raised mr-3"><i class="fa fa-dashcube"></i>
+                                پیام</button>
+                        </div>
+                        <div class="text-right d-block d-sm-block d-md-block d-lg-none">
+                            <button type="button" class="btn btn-primary btn-raised mr-2"><i
+                                    class="fa fa-plus"></i></button>
+                            <button type="button" class="btn btn-success btn-raised mr-3"><i
+                                    class="fa fa-dashcube"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-section">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 ">
+                            <ul class="profile-menu no-list-style">
+                                <li>
+                                    <a (click)="showPage('About')"
+                                        [ngClass]="currentPage === 'About' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">درباره
+                                        من</a>
+                                </li>
+                                <li>
+                                    <a (click)="showPage('Edit')"
+                                        [ngClass]="currentPage === 'Edit' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">ویرایش</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-2 text-center">
+                            <span class="font-medium-2 text-uppercase">{{CorrectUserInfo?.Name}}
+                                {{CorrectUserInfo?.LastName}}</span>
+                            <p class="grey font-small-2">
+
+
+                            </p>
+
+
+                        </div>
+                        <div class="col-lg-5 col-md-5">
+                            <ul class="profile-menu no-list-style">
+                                <li>
+                                    <a (click)="showPage('Password')"
+                                        [ngClass]="currentPage === 'Password' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">
+                                        پسورد </a>
+                                </li>
+                                <li>
+                                    <a (click)="showPage('Sites')"
+                                        [ngClass]="currentPage === 'ُSites' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">سایت
+                                        ها</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Basic User Details Ends-->
+
+<!--About section starts-->
+<section id="about" *ngIf="currentPage === 'About'">
+    <div class="row">
+        <div class="col-12">
+            <div class="content-header">درباره</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>اطلاعات شخصی</h5>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <span class="text-bold-500 primary">درباره ی من </span>
+                            <span class="d-block overflow-hidden">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                                است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
+                                فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای
+                                زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با
+                                نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو
+                                در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+                                راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و
+                                جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+
+                            </span>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <ul class="no-list-style">
+                                    <li class="mb-2">
+                                        <span class="text-bold-500 primary"><a><i class="icon-present font-small-3"></i>
+                                                تولد:</a></span>
+                                        <span class="d-block overflow-hidden"> {{CorrectUserInfo?.BirthDay}} </span>
+                                    </li>
+                                    <li class="mb-2">
+                                        <span class="text-bold-500 primary"><a><i class="ft-map-pin font-small-3"></i>
+                                                محل تولد:</a></span>
+                                        <span class="d-block overflow-hidden">ایران ، تهران</span>
+                                    </li>
+                                    <li class="mb-2">
+                                        <span class="text-bold-500 primary"><a><i class="ft-globe font-small-3"></i>
+                                                زندگی می کنم در:</a></span>
+                                        <span class="d-block overflow-hidden">اصفهان ، ایران</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <ul class="no-list-style">
+                                    <li class="mb-2">
+                                        <span class="text-bold-500 primary"><a><i class="ft-user font-small-3"></i>
+                                                جنسیت:</a></span>
+                                        <span class="d-block overflow-hidden">{{CorrectUserInfo?.Gender}} </span>
+                                    </li>
+                                    <li class="mb-2">
+                                        <span class="text-bold-500 primary"><a><i class="ft-mail font-small-3"></i>
+                                                ایمیل:</a></span>
+                                        <a class="d-block overflow-hidden">{{CorrectUserInfo?.Email}} </a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <span class="text-bold-500 primary"><a><i class="ft-monitor font-small-3"></i>
+                                                سایت:</a></span>
+                                        <a class="d-block overflow-hidden">pixinvent.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <ul class="no-list-style">
+                                    <li class="mb-2">
+                                        <span class="text-bold-500 primary"><a><i
+                                                    class="ft-smartphone font-small-3"></i> شماره تماس:</a></span>
+                                        <span class="d-block overflow-hidden">{{CorrectUserInfo?.Mobile}} </span>
+                                    </li>
+                                    <li class="mb-2">
+                                        <span class="text-bold-500 primary"><a><i class="ft-briefcase font-small-3"></i>
+                                                شغل:</a></span>
+                                        <span class="d-block overflow-hidden">طراح</span>
+                                    </li>
+                                    <li class="mb-2">
+                                        <span class="text-bold-500 primary"><a><i class="ft-book font-small-3"></i>
+                                                عضویت:</a></span>
+                                        <span class="d-block overflow-hidden">{{CorrectUserInfo?.CreatedDate}} </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="mt-3">
+                            <span class="text-bold-500 primary">سرگرمی:</span>
+                            <span class="d-block overflow-hidden">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                                است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
+                                فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای
+                                زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با
+                                نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو
+                                در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+                                راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و
+                                جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+
+                            </span>
+                        </div>
+                        <div class="mt-2 overflow-hidden">
+                            <span class="mr-3 mt-2 text-center float-left width-100"> <i
+                                    class="icon-plane danger font-large-2"></i>
+                                <div class="mt-2">مسافرت</div>
+                            </span>
+                            <span class="mr-3 mt-2 text-center float-left width-100"> <i
+                                    class="icon-speedometer danger font-large-2"></i>
+                                <div class="mt-2">رانندگی</div>
+                            </span>
+                            <span class="mr-3 mt-2 text-center float-left width-100"> <i
+                                    class="icon-camera danger font-large-2"></i>
+                                <div class="mt-2">عکاسی</div>
+                            </span>
+                            <span class="mr-3 mt-2 text-center float-left width-100"> <i
+                                    class="icon-game-controller danger font-large-2"></i>
+                                <div class="mt-2">بازی</div>
+                            </span>
+                            <span class="mr-3 mt-2 text-center float-left width-100"> <i
+                                    class="icon-music-tone-alt danger font-large-2"></i>
+                                <div class="mt-2">موزیک</div>
+                            </span>
+                            <span class="mr-3 mt-2 text-center float-left width-100"> <i
+                                    class="ft-monitor danger font-large-2"></i>
+                                <div class="mt-2">موج سواری</div>
+                            </span>
+                            <span class="mr-3 mt-2 text-center float-left width-100"> <i
+                                    class="ft-pie-chart danger font-large-2"></i>
+                                <div class="mt-2">غذا</div>
+                            </span>
+                            <span class="mr-3 mt-2 text-center float-left width-100"> <i
+                                    class="ft-tv danger font-large-2"></i>
+                                <div class="mt-2">تلویزیون</div>
+                            </span>
+                            <span class="mr-3 mt-2 text-center float-left width-100"> <i
+                                    class="icon-basket-loaded danger font-large-2"></i>
+                                <div class="mt-2">خرید</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>اطلاعات آموزشی</h5>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <ul class="no-list-style">
+                                    <li class="mb-2">
+                                        <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i>
+                                                موسسه طراحی افق</a></span>
+                                        <span class="grey line-height-0 d-block mb-2 font-small-2">1390 - 1391</span>
+                                        <span class="line-height-2 d-block overflow-hidden">استاد: محمد صالحی. شش ماه
+                                            بهترین ابزار توسعه ابزار.</span>
+                                    </li>
+                                    <li class="mb-2">
+                                        <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i>
+                                                دانشگاه تهران </a></span>
+                                        <span class="grey line-height-0 d-block mb-2 font-small-2">1391 - 1392</span>
+                                        <span class="line-height-2 d-block overflow-hidden">استاد: علی ناصری. بهترین
+                                            اطلاعات آموزشی را به من داد.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <ul class="no-list-style">
+                                    <li class="mb-2">
+                                        <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i>
+                                                توسعه دهنده</a></span>
+                                        <span class="grey line-height-0 d-block mb-2 font-small-2">1392 - 1393</span>
+                                        <span class="line-height-2 d-block overflow-hidden">توسعه دهنده ی زبان های
+                                            وب</span>
+                                    </li>
+                                    <li class="mb-2">
+                                        <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> ارشد
+                                                توسعه دهنده</a></span>
+                                        <span class="grey line-height-0 d-block mb-2 font-small-2">1395- تاکنون</span>
+                                        <span class="line-height-2 d-block overflow-hidden">ارشد توسعه دهنده ی زبان های
+                                            وب</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--About section ends-->
+
+
+<!--Edit section starts-->
+<section id="edit" *ngIf="currentPage === 'Edit'">
+    <div class="row">
+        <div class="col-12">
+            <div class="content-header">ویرایش</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <form #CoreUserEditForm="ngForm"  (ngSubmit)="onSubmitCoreUserEdit()">
+                    <div class="card-header">
+                        <h5>ویرایش اطلاعات شخصی</h5>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <span class="text-bold-500 primary">درباره ی من </span>
+                                <span class="d-block overflow-hidden">
+                                    اطلاعات را با دقت و صحیح وارد کنید
+
+                                </span>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <ul class="no-list-style">
+                                        <li class="mb-2">
+                                            <span class="text-bold-500 primary"><a><i
+                                                        class="icon-present font-small-3"></i> تولد:</a></span>
+                                            <input  [(ngModel)]="CorrectUserInfo.BirthDay" value="{{CorrectUserInfo?.BirthDay}}"
+                                                type="text" class="form-control mb-3" />
+
+                                        </li>
+                                        <li class="mb-2">
+                                            <span class="text-bold-500 primary"><a><i
+                                                        class="ft-map-pin font-small-3"></i> محل تولد:</a></span>
+                                                        <input  
+                                                        type="text" class="form-control mb-3" />
+                                        </li>
+                                        <li class="mb-2">
+                                            <span class="text-bold-500 primary"><a><i class="ft-globe font-small-3"></i>
+                                                    زندگی می کنم در:</a></span>
+                                                    <input [(ngModel)]="CorrectUserInfo.Address" name="Address" value="{{CorrectUserInfo?.Address}}"
+                                                    type="text" class="form-control mb-3" />
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <ul class="no-list-style">
+                                        <li class="mb-2">
+                                            <span class="text-bold-500 primary"><a><i class="ft-user font-small-3"></i>
+                                                    جنسیت:</a></span>
+                                                    <input  name="Gender" value="{{CorrectUserInfo?.Gender}}"
+                                                    type="text" class="form-control mb-3" />
+                                            
+                                        </li>
+                                        <li class="mb-2">
+                                            <span class="text-bold-500 primary"><a><i class="ft-mail font-small-3"></i>
+                                                    ایمیل:</a></span>
+                                            
+                                            <input  [(ngModel)]="CorrectUserInfo.Email" value="{{CorrectUserInfo?.Email}}"
+                                            type="text" class="form-control mb-3" />
+                                    
+                                        </li>
+                                        <li class="mb-2">
+                                            <span class="text-bold-500 primary"><a><i
+                                                        class="ft-monitor font-small-3"></i> سایت:</a></span>
+                                            <a class="d-block overflow-hidden">pixinvent.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <ul class="no-list-style">
+                                        <li class="mb-2">
+                                            <span class="text-bold-500 primary"><a><i
+                                                        class="ft-smartphone font-small-3"></i> شماره تماس:</a></span>
+                                            <input  value="{{CorrectUserInfo?.Mobile}}"
+                                            type="text" class="form-control mb-3" />
+                                        </li>
+                                        <li class="mb-2">
+                                            <span class="text-bold-500 primary"><a><i
+                                                        class="ft-briefcase font-small-3"></i> شغل:</a></span>
+                                            <span class="d-block overflow-hidden">طراح</span>
+                                        </li>
+                                        <li class="mb-2">
+                                            <span class="text-bold-500 primary"><a><i class="ft-book font-small-3"></i>
+                                                    عضویت:</a></span>
+                                            <span class="d-block overflow-hidden">{{CorrectUserInfo?.CreatedDate}}
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr>
+                            <button  type="submit"
+                            class="btn btn-primary">
+                            <a class="text-decoration-none text-white">
+                                ثبت
+                            </a>
+                        </button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--Edit section ends-->
+
+<!--User Timeline section starts-->
+<section *ngIf="currentPage === 'TimeLine'">
+    <div class="row">
+        <div class="col-12">
+            <div class="content-header">گاهشمار کاربر</div>
+        </div>
+    </div>
+    <div id="timeline" class="timeline-center timeline-wrapper">
+        <ul class="timeline">
+            <li class="timeline-line"></li>
+            <li class="timeline-group">
+                <a class="btn btn-raised btn-primary"><i class="fa fa-calendar-o"></i> امروز</a>
+            </li>
+        </ul>
+        <ul class="timeline">
+            <li class="timeline-line"></li>
+            <li class="timeline-item">
+                <div class="timeline-badge">
+                    <span class="bg-red bg-lighten-1" data-toggle="tooltip" data-placement="right"
+                        title="کار پروژه نمونه کارها"><i class="fa fa-plane"></i></span>
+                </div>
+                <div class="timeline-card card border-grey border-lighten-2">
+                    <div class="card-header">
+                        <h4 class="mb-0 card-title"><a>کار پروژه نمونه کارها</a></h4>
+                        <div class="card-subtitle text-muted mt-0">
+                            <span class="font-small-3">5 ساعت پیش</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <img class="img-fluid" src="assets/img/photos/06.jpg" alt="Timeline Image 1">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
+                                    برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
+                                    می باشد.
+                                </p>
+                                <div class="list-inline mb-1">
+                                    <span class="pr-1"><a class="primary"><span class="fa fa-thumbs-o-up"></span>
+                                            پسندیدن</a></span>
+                                    <span class="pr-1"><a class="primary"><span class="fa fa-commenting-o"></span>
+                                            نظر</a></span>
+                                    <span><a class="primary"><span class="fa fa-share-alt"></span> اشتراک</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer px-0 py-0">
+                            <div class="card-body">
+                                <form>
+                                    <fieldset class="form-group position-relative has-icon-left mb-0">
+                                        <input type="text" class="form-control" placeholder="نوشتن نظر ...">
+                                        <div class="form-control-position">
+                                            <i class="fa fa-dashcube"></i>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-item mt-5">
+                <div class="timeline-badge">
+                    <span class="avatar avatar-online" data-toggle="tooltip" data-placement="right"
+                        title="Eu pid nunc urna integer"><img src="assets/img/portrait/small/avatar-s-5.png"
+                            alt="avatar" width="40"></span>
+                </div>
+                <div class="timeline-card card card-inverse">
+                    <img class="card-img img-fluid" src="assets/img/photos/07.jpg" alt="Card image">
+                    <div class="card-img-overlay bg-overlay">
+                        <h4 class="card-title">صبح بخیر</h4>
+                        <p class="card-text"><small>15 ساعت پیش</small></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <!-- 2016 -->
+        <ul class="timeline">
+            <li class="timeline-line"></li>
+            <li class="timeline-group">
+                <a class="btn btn-raised btn-primary"><i class="fa fa-calendar-o"></i> 1396</a>
+            </li>
+        </ul>
+        <ul class="timeline">
+            <li class="timeline-line"></li><!-- /.timeline-line -->
+            <li class="timeline-item">
+                <div class="timeline-badge">
+                    <span class="bg-warning bg-darken-1" data-toggle="tooltip" data-placement="right"
+                        title="پشتیبانی برنامه کاربردی"><i class="fa fa-life-ring"></i></span>
+                </div>
+                <div class="timeline-card card border-grey border-lighten-2">
+                    <div class="card-header">
+                        <div class="media">
+                            <div class="media-left">
+                                <a>
+                                    <span class="avatar avatar-md avatar-busy"><img
+                                            src="assets/img/portrait/small/avatar-s-11.png" alt="avatar"
+                                            width="50"></span>
+                                    <i></i>
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="mb-0 card-title"><a>پشتیبانی برنامه کاربردی</a></h4>
+                                <div class="card-subtitle text-muted mt-0">
+                                    <span class="font-small-3">15 بهمن 1396 ساعت 17:00</span>
+                                    <span class="tag tag-pill tag-default tag-warning float-right">بالا</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <img class="img-fluid" src="assets/img/photos/08.jpg" alt="Timeline Image 1">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                                    استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان
+                                    که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                    ابزارهای کاربردی می باشد. </p>
+                                <div class="list-inline mb-1">
+                                    <span class="pr-1"><a class="primary"><span class="fa fa-commenting-o"></span>
+                                            نظر</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer px-0 py-0">
+                            <div class="card-body">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a>
+                                            <span class="avatar avatar-online"><img
+                                                    src="assets/img/portrait/small/avatar-s-14.png" alt="avatar"
+                                                    width="50"></span>
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <p class="text-bold-600 mb-0"><a>زیبا حسنی کیا</a></p>
+                                        <p class="m-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                                            استفاده از طراحان گرافیک است</p>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <a>
+                                                    <span class="avatar avatar-online"><img
+                                                            src="assets/img/portrait/small/avatar-s-16.png" alt="avatar"
+                                                            width="50"></span>
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <p class="text-bold-600 mb-0"><a>زهرا اسدی</a></p>
+                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                                                    استفاده از طراحان گرافیک است</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form>
+                                    <fieldset class="form-group position-relative has-icon-left mb-0">
+                                        <input type="text" class="form-control" placeholder="نوشتن نظر ...">
+                                        <div class="form-control-position">
+                                            <i class="fa fa-dashcube"></i>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-item mt-5">
+                <div class="timeline-badge">
+                    <span class="bg-amber bg-darken-1" data-toggle="tooltip" data-placement="left"
+                        title="Quote of the day"><i class="fa fa-smile-o"></i></span>
+                </div>
+                <div class="timeline-card card border-grey border-lighten-2">
+                    <div class="card-header">
+                        <h4 class="mb-0 card-title"><a>نقل قول روز</a></h4>
+                        <div class="card-subtitle text-muted mt-0">
+                            <span class="font-small-3">3 دی 1396 ساعت 120:00 ظهر</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <img class="img-fluid" src="assets/img/photos/09.jpg" alt="Timeline Image 1">
+                        <div class="card-body">
+                            <blockquote class="card-bodyquote">
+                                <p class="card-text">
+                                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                                    تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                </p>
+                                <footer>کسی که معروف است <cite title="Source Title"> - عنوان منبع</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- 2015 -->
+        <ul class="timeline">
+            <li class="timeline-line"></li>
+            <li class="timeline-group">
+                <a class="btn btn-raised btn-primary"><i class="fa fa-calendar-o"></i> در سال 1396 تاسیس شد</a>
+            </li>
+        </ul>
+    </div>
+</section>
+<!--User Timeline section ends-->
+
+<!--User's friend section starts-->
+<section id="friends" *ngIf="currentPage === 'Friends'">
+    <div class="row">
+        <div class="col-12">
+            <div class="content-header">دوستان</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <img src="./assets/img/portrait/small/avatar-s-3.png" alt="Brek" width="150"
+                        class="rounded-circle gradient-mint">
+                </div>
+                <div class="card-content">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">رضا مرادی</h4>
+                        <p class="category text-gray font-small-4">مدیر عامل شرکت / موسس</p>
+                        <a class="btn btn-lg gradient-mint font-small-2 white p-2 mr-2">افزودن به عنوان دوست</a>
+                        <a class="btn btn-lg btn-outline-grey font-small-2 p-2">پیام</a>
+                        <hr class="grey">
+                        <div class="row grey">
+                            <div class="col-4">
+                                <a><i class="ft-star mr-1"></i> <span>4.9</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-globe mr-1"></i> <span>ایران</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-book mr-1"></i> <span>21</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <img src="./assets/img/portrait/small/avatar-s-18.png" alt="Jassi" width="150"
+                        class="rounded-circle gradient-pomegranate">
+                </div>
+                <div class="card-content">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">زهرا اسعدی</h4>
+                        <p class="category text-gray font-small-4">توسعه دهنده</p>
+                        <a class="btn btn-lg gradient-pomegranate font-small-2 white p-2 mr-2">افزودن به عنوان دوست</a>
+                        <a class="btn btn-lg btn-outline-grey font-small-2 p-2">پیام</a>
+                        <hr class="grey">
+                        <div class="row grey">
+                            <div class="col-4">
+                                <a><i class="ft-star mr-1">ستاره</i> <span>4.7</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-globe mr-1"></i> <span>ایران</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-book mr-1"></i> <span>14</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <img src="./assets/img/portrait/small/avatar-s-11.png" alt="Brek" width="150"
+                        class="rounded-circle gradient-orange-amber">
+                </div>
+                <div class="card-content">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">سارا حسینی</h4>
+                        <p class="category text-gray font-small-4">توسعه دهنده اندروید</p>
+                        <a class="btn btn-lg gradient-orange-amber font-small-2 white p-2 mr-2">افزودن به عنوان دوست</a>
+                        <a class="btn btn-lg btn-outline-grey font-small-2 p-2">پیام</a>
+                        <hr class="grey">
+                        <div class="row grey">
+                            <div class="col-4">
+                                <a><i class="ft-star mr-1">ستاره</i> <span>5.0</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-globe mr-1"></i> <span>ایران</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-book mr-1"></i> <span>18</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <img src="./assets/img/portrait/small/avatar-s-6.png" alt="Maitri" width="150"
+                        class="rounded-circle gradient-red-pink">
+                </div>
+                <div class="card-content">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">ثنا شاملی</h4>
+                        <p class="category text-gray font-small-4">طراح</p>
+                        <a class="btn btn-lg gradient-red-pink font-small-2 white p-2 mr-2">افزودن به عنوان دوست</a>
+                        <a class="btn btn-lg btn-outline-grey font-small-2 p-2">پیام</a>
+                        <hr class="grey">
+                        <div class="row grey">
+                            <div class="col-4">
+                                <a><i class="ft-star mr-1">ستاره</i> <span>4.5</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-globe mr-1"></i> <span>ایران</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-book mr-1"></i> <span>19</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <img src="./assets/img/portrait/small/avatar-s-9.png" alt="Anibal" width="150"
+                        class="rounded-circle gradient-blackberry">
+                </div>
+                <div class="card-content">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">آرزو محمدی</h4>
+                        <p class="category text-gray font-small-4">توسعه دهنده پروژه</p>
+                        <a class="btn btn-lg gradient-blackberry font-small-2 white p-2 mr-2">افزودن به عنوان دوست</a>
+                        <a class="btn btn-lg btn-outline-grey font-small-2 p-2">پیام</a>
+                        <hr class="grey">
+                        <div class="row grey">
+                            <div class="col-4">
+                                <a><i class="ft-star mr-1">ستاره</i> <span>4.8</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-globe mr-1"></i> <span>لندن</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-book mr-1"></i> <span>20</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <img src="./assets/img/portrait/small/avatar-s-12.png" alt="Gini" width="150"
+                        class="rounded-circle gradient-back-to-earth">
+                </div>
+                <div class="card-content">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">علیرضا زمانی</h4>
+                        <p class="category text-gray font-small-4">منابع انسانی</p>
+                        <a class="btn btn-lg gradient-back-to-earth font-small-2 white p-2 mr-2">افزودن به عنوان
+                            دوست</a>
+                        <a class="btn btn-lg btn-outline-grey font-small-2 p-2">پیام</a>
+                        <hr class="grey">
+                        <div class="row grey">
+                            <div class="col-4">
+                                <a><i class="ft-star mr-1">ستاره</i> <span>4.4</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-globe mr-1"></i> <span>ایران</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-book mr-1"></i> <span>15</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--User's friend section starts-->
+
+<!--User's Password section starts-->
+<section id="password" *ngIf="currentPage === 'Password'">
+    <div class="row">
+        <div class="col-12">
+            <div class="content-header">پسورد</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>پسور باید لایتن ، شامل حروف و کاراکتر و عدد باشد</h5>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <form [formGroup]="CoreUserPasswordEditformGroup" (ngSubmit)="onSubmitCoreUserPasswordEdit()">
+                            <div class="row">
+                                <input formControlName="OldPassword" type="password" [disabled]="onSubmitCoreUserPasswordEditRun" class="form-control mb-3"
+                                    placeholder="رمز عبور" />
+
+                                <input formControlName="NewPassword" type="password" [disabled]="onSubmitCoreUserPasswordEditRun" class="form-control mb-3"
+                                    placeholder="رمز عبور جدید" />
+                                <input formControlName="NewPasswordConfirm" type="password" [disabled]=" onSubmitCoreUserPasswordEditRun" class="form-control mb-3"
+                                    placeholder="تکرار رمز عبور" />
+
+                                <br>
+                                <button [disabled]="!CoreUserPasswordEditformGroup.valid || onSubmitCoreUserPasswordEditRun" type="submit"
+                                    class="btn btn-primary">
+                                    <a class="text-decoration-none text-white">
+                                        ثبت
+                                    </a>
+                                </button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--User's Pasword section starts-->
+
+<!--User's Sites section starts-->
+<section id="sites" *ngIf="currentPage === 'Sites'">
+    <div class="row">
+        <div class="col-12">
+            <div class="content-header">وب سایتها</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>وب سایت هایی که شما در آن عضو هستید</h5>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="row">
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/1.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/2.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/3.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/4.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                        </div>
+                        <div class="row">
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/5.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/6.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/7.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/8.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--User's Sites section starts-->
+<!--User's uploaded photos section starts-->
+<section id="photos" *ngIf="currentPage === 'Photos'">
+    <div class="row">
+        <div class="col-12">
+            <div class="content-header">عکس ها</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>عکس آپلود شده</h5>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="row">
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/1.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/2.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/3.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/4.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                        </div>
+                        <div class="row">
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/5.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/6.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/7.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/8.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                        </div>
+                        <div class="row">
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/9.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/10.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/11.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/12.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                        </div>
+                        <div class="row">
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/13.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/14.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/15.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                            <figure class="col-lg-3 col-md-6 col-12">
+                                <img class="img-thumbnail img-fluid" src="./assets/img/gallery/16.jpg"
+                                    itemprop="thumbnail" alt="Image description" />
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--User's uploaded photos section starts-->
+<!--User Profile Starts-->

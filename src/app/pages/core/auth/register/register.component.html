@@ -1,0 +1,66 @@
+<!--Registration Page Starts-->
+<section id="regestration">
+    <div class="container-fluid">
+        <div class="row full-height-vh m-0">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <form #registerForm="ngForm" (ngSubmit)="onSubmit()" aria-labelledby="title">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body register-img">
+                                <div class="row m-0">
+                                    <div class="col-lg-6 d-none d-lg-block py-2 px-3 text-center">
+                                        <img src="../../assets/img/gallery/register.png" alt="" class="img-fluid mt-3 pl-3" width="400" height="230" />
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 pt-3 px-4 bg-white">
+
+
+                                        <h4 class="card-title mb-2">ایجاد حساب کاربری</h4>
+                                        <p class="card-text mb-3">
+                                            فرم زیر را برای ایجاد یک حساب کاربری جدید پر کنید.
+                                        </p>
+                                        <input [(ngModel)]="model.name" name="name" type="text" class="form-control mb-3" placeholder="نام" />
+                                        <input [(ngModel)]="model.family" name="family" type="text" class="form-control mb-3" placeholder="نام خانوادگی" />
+                                        <input [(ngModel)]="model.email" name="email" type="email" class="form-control mb-3" placeholder="ایمیل" />
+                                        <input [(ngModel)]="model.mobile" name="mobile" type="email" class="form-control mb-3" placeholder="شماره همراه 09120000000" />
+                                        <input [(ngModel)]="model.Password" name="password" type="password" class="form-control mb-3" placeholder="رمز عبور" />
+                                        <input [(ngModel)]="model.rePassword" type="password" name="repassword" class="form-control mb-3" placeholder="تکرار رمز عبور" />
+
+
+                                        <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()">
+                                        <input [(ngModel)]="model.captchaText" type="captchaText" name="captchaText" class="form-control mb-3" placeholder="محتوای عکس" />
+
+                                        <div class="custom-control custom-checkbox custom-control-inline mb-3">
+                                            <input [(ngModel)]="model.roulaccespt" name="roulaccespt" type="checkbox" id="customCheckboxInline1" class="custom-control-input" checked />
+                                            <label class="custom-control-label" for="customCheckboxInline1">
+                                                من شرایط و ضوابط را میپذیرم
+                                            </label>
+                                        </div>
+                                        <div class="fg-actions d-flex justify-content-between">
+
+                                            <div class="recover-pass">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <a class="text-decoration-none text-white">
+                                                        ثبت نام
+                                                    </a>
+                                                </button>
+                                            </div>
+                                            <div class="login-btn">
+                                                <button class="btn btn-outline-primary">
+                                                    <a [routerLink]="[_cmsUiConfig.Pathlogin]" class="text-decoration-none">
+                                                        بازگشت به صفحه ورود
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Registration Page Ends-->

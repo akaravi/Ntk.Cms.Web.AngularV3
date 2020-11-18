@@ -1,0 +1,60 @@
+<!-- Columns section start -->
+<section id="columns">
+  <div class="row text-left">
+    <div class="col-12 mt-3 mb-1">
+      <div class="content-header">انتخاب وب سایت</div>
+      <div *ngIf="!(dataModel?.ListItems)" >
+        در حال بررسی سایتهایی که شما در آن عضویت دارید
+
+      </div>
+      <div *ngIf="dataModel?.ListItems?.length == 0">
+        <p  class="content-sub-header">
+          حساب کاربری شما در هیچ وب سایتی عضویت ندارد
+          <br>
+         برای خود وب سایت ایجاد کنید
+
+        </p>
+        <app-cms-site-add [dateInput]="{AddFirstSite:true,onActionAddFirstSite:onActionAddFirstSite}"></app-cms-site-add>
+
+      </div>
+      <div *ngIf="dataModel?.ListItems?.length > 0" >
+
+        <p class="content-sub-header">
+          حساب کاربری شما در کلیه وب سایتهای زیر عضویت دارد
+          <br>
+          نسبت به دسترسی شما در آن وب سایت و فعالیتی که در نظر دارید وب سایت را انتخاب کنید
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row text-left">
+    <div class="col-md-12 mt-1">
+
+      <div *ngIf="dataModel?.ListItems?.length > 0"class="card-columns">
+        <div *ngFor="let item of dataModel.ListItems; index as i; trackBy: trackByFn" class="card">
+          <div class="card-content">         
+            <div class="card-body">
+              <h4 class="card-title">{{item.Title}}</h4>
+              <p class="card-text">
+               {{item.Description}}
+              </p>
+                <br>
+                <p class="bg-info">شناسه :{{item.Id}}</p>
+                <p class="bg-success">ساخت :{{item.CreatedDate | persianTimeAgo}}</p>
+                <p class="bg-danger">انقضا :{{item.ExpirationDate | jdate }}</p>
+          
+                <br>{{item.SubDomain}}.{{item.Domain}}
+                <br>
+              
+              <a (click)="clickSelectSite(item)" class="btn btn-outline-warning">وارد شوید</a>
+            </div>
+            <img (click)="clickSelectSite(item)" class="card-img-top img-fluid" src="{{item.MainImageSrc}}" alt="Card image cap" >
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Columns section end -->

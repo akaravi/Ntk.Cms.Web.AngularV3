@@ -1,0 +1,55 @@
+ <!--List Group starts-->
+ <section id="list">
+ 
+   <div class="row" matchHeight="card">
+     <!--List Group with Button items Starts-->
+     <div class="col-sm-12 col-md-6 col-lg-4">
+       <div class="card  text-left">
+         <div class="card-header">
+           <h4 class="card-title">انواع وب سایت</h4>
+      نوع وب سایت را نسبت به محتوا و یا فعالیت انتخاب کنید
+         </div>
+         <div class="card-content">
+           <div class="card-body">
+             <div *ngIf="dataModelLoad" class="list-group">
+               <div *ngFor="let item of dataModelCategory.ListItems; index as i; trackBy: trackByFn" class="list-group-item">
+                 <input (click)="clickSelectSiteCategory(item)"  type="radio" #work required id="customRadioInline{{item.Id}}" name="category"
+                   class="custom-control-input" value="{{item.Id}}">
+                 <label class="custom-control-label" for="customRadioInline{{item.Id}}">{{item.Title}}</label>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+       <!--List Group with Button items Ends-->
+      </div>
+
+
+       <!--Basic List Group Starts-->
+       <div *ngIf="dataSelectedSiteCategory?.Id>0" class="col-sm-12 col-md-6 col-lg-4">
+         <div class="card  text-left">
+           <div class="card-header">
+             <h4 class="card-title">ماژول ها</h4>
+             <p>
+               لیست ماژول های پیش فرض در این نوع
+             {{dataSelectedSiteCategory.Title}}
+             </p>
+           </div>
+           <div class="card-content">
+             <div class="card-body">
+               <ul *ngIf="dataModelModule?.ListItems" class="list-group">
+                 <li *ngFor="let item of dataModelModule.ListItems; index as i; trackBy: trackByFn" class="list-group-item">{{item.Title}}</li>
+                
+               </ul>
+             </div>
+           </div>
+         </div>
+       </div>
+       <!--Basic List Group Ends-->
+
+
+
+
+   </div>
+ </section>
+ <!--List Group starts-->

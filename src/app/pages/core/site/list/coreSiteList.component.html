@@ -1,0 +1,35 @@
+<!-- Filter Datatable Options Starts -->
+<section id="filter" class="mb-3">
+  <div class="row text-left">
+      <div class="col-12">
+          <div class="content-header">گزینه فیلتر</div>
+      </div>
+  </div>
+  <div class="row">
+      <div *ngIf="dataModelSite?.IsSuccess" class="col-sm-12" >
+          <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='ستون نام را فیلتر کنید' 
+          />
+          <ngx-datatable #table class='bootstrap' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+              [rowHeight]="'auto'" [limit]="10" [rows]='dataModelSite.ListItems'>
+          </ngx-datatable>
+          <!-- <ngx-datatable
+          class="material"
+          [rows]="dataModelSite.ListItems"
+          [columns]="columns"
+          [columnMode]="ColumnMode.force"
+          [headerHeight]="50"
+          [summaryRow]="true"
+          [summaryHeight]="55"
+          [footerHeight]="50"
+          rowHeight="auto"
+          [externalPaging]="true"
+          [count]="page.totalElements"
+          [offset]="page.pageNumber"
+          [limit]="page.size"
+          (page)="setPage($event)"
+        >
+        </ngx-datatable> -->
+      </div>
+  </div>
+</section>
+<!-- Filter Datatable Options Ends -->
