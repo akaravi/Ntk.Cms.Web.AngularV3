@@ -24,7 +24,6 @@ import { SharedModule } from 'src/app/core/shared/shared.module';
     ForgotPasswordComponent,
   ],
   providers: [
-     
   ],
 })
 export class CoreAuthModule { }

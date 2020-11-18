@@ -10,9 +10,6 @@ import { NgxQueryBuilderModule } from 'ngx-query-builder';
 import { PersianDate } from '../common/pipe/PersianDatePipe/persian-date.pipe';
 import { TruncatePipe } from '../common/pipe/truncate.pipe';
 import { TreeModule } from '@circlon/angular-tree-component';
-import { PersianPipeModule } from '../common/pipe/PersianDatePipe/persianPipe.module';
-
-import { CmsToastrService } from '../services/base/cmsToastr.service';
 
 
 @NgModule({
@@ -23,9 +20,7 @@ import { CmsToastrService } from '../services/base/cmsToastr.service';
     MaterialModule,
     TreeModule,
     NgxQueryBuilderModule,
-    
-    
-    CmsToastrService
+   
   ],
   entryComponents: [
     // All components about to be loaded "dynamically" need to be declared in the entryComponents section.
