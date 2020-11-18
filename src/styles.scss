@@ -17,16 +17,16 @@
 @import "./assets/plugins/keenthemes-icons/font/ki.css";
 
 // Metronic styles (replace these path when using RTL css below)
-@import "./assets/sass/style.angular.scss";
+// @import "./assets/sass/style.angular.scss";
 
 // For RTL, check this documentation https://keenthemes.com/metronic/?page=docs&section=angular-rtl
-// @import "./assets/sass/style.angular.rtl.css";
+@import "./assets/sass/style.angular.rtl.css";
 
 // Default Layout themes
-// @import "./assets/sass/themes/layout/header/base/light.scss";
-// @import "./assets/sass/themes/layout/header/menu/light.scss";
-// @import "./assets/sass/themes/layout/brand/dark.scss";
-// @import "./assets/sass/themes/layout/aside/dark.scss";
+@import "./assets/sass/themes/layout/header/base/light.scss";
+@import "./assets/sass/themes/layout/header/menu/light.scss";
+@import "./assets/sass/themes/layout/brand/dark.scss";
+@import "./assets/sass/themes/layout/aside/dark.scss";
 
 // Header themes
 // .header-base-light {
@@ -46,13 +46,13 @@
 // }
 
 // Brand themes
-// .brand-dark {
-//   @import "./assets/sass/themes/layout/brand/dark.scss";
-// }
+.brand-dark {
+  @import "./assets/sass/themes/layout/brand/dark.scss";
+}
 
-// .brand-light {
-//   @import "./assets/sass/themes/layout/brand/light.scss";
-// }
+.brand-light {
+  @import "./assets/sass/themes/layout/brand/light.scss";
+}
 
 // Aside themes
 // .aside-dark {

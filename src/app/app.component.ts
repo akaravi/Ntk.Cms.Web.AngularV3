@@ -12,6 +12,7 @@ import { locale as esLang } from './modules/i18n/vocabs/es';
 import { locale as jpLang } from './modules/i18n/vocabs/jp';
 import { locale as deLang } from './modules/i18n/vocabs/de';
 import { locale as frLang } from './modules/i18n/vocabs/fr';
+import { locale as faLang } from './modules/i18n/vocabs/fa';
 import { SplashScreenService } from './_metronic/partials/layout/splash-screen/splash-screen.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -32,12 +33,13 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {
     // register translations
     this.translationService.loadTranslations(
+      faLang,
       enLang,
       chLang,
       esLang,
       jpLang,
       deLang,
-      frLang
+      frLang,
     );
   }
 

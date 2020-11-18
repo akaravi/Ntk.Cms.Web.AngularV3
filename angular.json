@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demo3-app": {
+    "demo1-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -30,8 +30,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js",
               "node_modules/clipboard/dist/clipboard.js"
@@ -71,18 +76,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo3-app:build"
+            "browserTarget": "demo1-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo3-app:build:production"
+              "browserTarget": "demo1-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo3-app:build"
+            "browserTarget": "demo1-app:build"
           }
         },
         "test": {
@@ -92,8 +97,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -105,25 +115,27 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "demo3-app:serve"
+            "devServerTarget": "demo1-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "demo3-app:serve:production"
+              "devServerTarget": "demo1-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "demo3-app",
+  "defaultProject": "demo1-app",
   "cli": {
     "analytics": false
   }

@@ -1,6 +1,7 @@
 /* eslint-disable */
 "use strict";
 
+import KTLayoutHeader from "./header.js";
 import KTCard from "./../../components/card.js";
 import { KTUtil } from "./../../components/util.js";
 import KTLayoutSubheader from "./subheader.js";

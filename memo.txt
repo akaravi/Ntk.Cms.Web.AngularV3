@@ -5,3 +5,12 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/akaravi/Ntk.Cms.Web.AngularV3.git
 git push -u origin main
+
+
+
+===================RTL 
+npm run rtl
+
+
+
+=======================

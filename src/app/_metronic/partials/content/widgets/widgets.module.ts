@@ -17,14 +17,7 @@ import { DropdownMenusModule } from '../dropdown-menus/dropdown-menus.module';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { Widget3DropdownComponent } from './lists/lists-widget3/widget3-dropdown/widget3-dropdown.component';
 import { Widget4DropdownComponent } from './lists/lists-widget4/widget4-dropdown/widget4-dropdown.component';
-import { MixedWidget4Component } from './mixed/mixed-widget4/mixed-widget4.component';
-import { BaseTablesWidget6Component } from './base-tables/base-tables-widget6/base-tables-widget6.component';
-import { StatsWidget10Component } from './stats/stats-widget10/stats-widget10.component';
-import { ListsWidget14Component } from './lists/lists-widget14/lists-widget14.component';
-import { AdvanceTablesWidget9Component } from './advance-tables/advance-tables-widget9/advance-tables-widget9.component';
-import { ListsWidget10Component } from './lists/lists-widget10//lists-widget10.component';
-import { BaseTablesWidget1Component } from './base-tables/base-tables-widget1/base-tables-widget1.component';
-import { BaseTablesWidget2Component } from './base-tables/base-tables-widget2/base-tables-widget2.component';
+
 @NgModule({
   declarations: [
     MixedWidget1Component,
@@ -40,14 +33,6 @@ import { BaseTablesWidget2Component } from './base-tables/base-tables-widget2/ba
     AdvanceTablesWidget2Component,
     Widget3DropdownComponent,
     Widget4DropdownComponent,
-    MixedWidget4Component,
-    BaseTablesWidget6Component,
-    StatsWidget10Component,
-    ListsWidget14Component,
-    AdvanceTablesWidget9Component,
-    ListsWidget10Component,
-    BaseTablesWidget1Component,
-    BaseTablesWidget2Component
   ],
   imports: [
     CommonModule,
@@ -68,14 +53,6 @@ import { BaseTablesWidget2Component } from './base-tables/base-tables-widget2/ba
     MixedWidget14Component,
     AdvanceTablesWidget4Component,
     AdvanceTablesWidget2Component,
-    MixedWidget4Component,
-    BaseTablesWidget6Component,
-    StatsWidget10Component,
-    ListsWidget14Component,
-    AdvanceTablesWidget9Component,
-    ListsWidget10Component,
-    BaseTablesWidget1Component,
-    BaseTablesWidget2Component
   ],
 })
-export class WidgetsModule { }
+export class WidgetsModule {}

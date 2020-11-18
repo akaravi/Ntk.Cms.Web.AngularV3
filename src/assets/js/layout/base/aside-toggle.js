@@ -3,6 +3,7 @@
 
 import KTToggle from "./../../components/toggle.js";
 import KTLayoutStickyCard from "./sticky-card.js";
+import KTLayoutHeaderMenu from "./header-menu.js";
 import KTLayoutAsideMenu from "./aside-menu.js";
 import { KTCookie } from "./../../components/cookie.js";
 import { KTUtil } from "./../../components/util.js";
@@ -17,15 +18,13 @@ var KTLayoutAsideToggle = function() {
 	var _init = function() {
 		_toggleObject = new KTToggle(_element, _body, {
 			targetState: 'aside-minimize',
-			toggleState: 'aside-toggle-active'
+			toggleState: 'active'
 		});
 
 		_toggleObject.on('toggle', function(toggle) {
             // Update sticky card
             if (typeof KTLayoutStickyCard !== 'undefined') {
-                setTimeout(function() {
-                    KTLayoutStickyCard.update();
-                }, 500);
+                KTLayoutStickyCard.update();
             }
 
             // Pause header menu dropdowns
@@ -46,9 +45,9 @@ var KTLayoutAsideToggle = function() {
 		});
 
 		_toggleObject.on('beforeToggle', function(toggle) {
-			//if (KTUtil.hasClass(_body, 'aside-minimize') === false && KTUtil.hasClass(_body, 'aside-minimize-hover')) {
-			//	KTUtil.removeClass(_body, 'aside-minimize-hover');
-			//}
+			if (KTUtil.hasClass(_body, 'aside-minimize') === false && KTUtil.hasClass(_body, 'aside-minimize-hover')) {
+				KTUtil.removeClass(_body, 'aside-minimize-hover');
+			}
 		});
 	}
 

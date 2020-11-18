@@ -4,6 +4,7 @@ import KTLayoutAsideToggle from '../../../../../assets/js/layout/base/aside-togg
 import KTLayoutStickyCard from '../../../../../assets/js/layout/base/sticky-card';
 import KTLayoutStretchedCard from '../../../../../assets/js/layout/base/stretched-card';
 import { LayoutService } from '../../../../_metronic/core';
+import KTLayoutBrand from '../../../../../assets/js/layout/base/brand';
 import KTLayoutAside from '../../../../../assets/js/layout/base/aside';
 import KTLayoutAsideMenu from '../../../../../assets/js/layout/base/aside-menu';
 
@@ -24,6 +25,8 @@ export class ScriptsInitComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     KTUtil.ready(() => {
+      // Init Brand Panel For Logo
+      KTLayoutBrand.init('kt_brand');
       // Init Aside
       KTLayoutAside.init('kt_aside');
       // Init Aside Menu
