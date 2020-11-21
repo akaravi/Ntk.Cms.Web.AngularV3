@@ -24,15 +24,12 @@ export class CmsTokenAccessAdminComponent implements OnInit {
     private toastrService: CmsToastrService
   ) {
     this.coreAuthService.CorrectTokenInfoBSObs.subscribe((value) => {
-      if (value == null || value.UserId == null || value.UserId === 0) {
-        this.coreAuthService.CorrectTokenInfoBSRenew();
-      }
-
       this.TokenInfo = value;
     });
   }
 
   ngOnInit(): void {
+    this.coreAuthService.CorrectTokenInfoBSRenew();
   }
 
   onActionbuttonUserAccessAdminAllowToAllData(): void {
