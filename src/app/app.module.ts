@@ -26,13 +26,13 @@ import { PersianCalendarService } from './core/common/pipe/PersianDatePipe/persi
 import { AuthInterceptor } from './core/common/interceptor/auth-interceptor.service';
 import { CmsAuthGuard } from './core/services/core/auth.guard.service';
 
-function appInitializer(authService: AuthService) {
-  return () => {
-    return new Promise((resolve) => {
-      authService.getUserByToken().subscribe().add(resolve);
-    });
-  };
-}
+// function appInitializer(authService: AuthService) {
+//   return () => {
+//     return new Promise((resolve) => {
+//       authService.getUserByToken().subscribe().add(resolve);
+//     });
+//   };
+// }
 
 /**
  * Import specific languages to avoid importing everything
@@ -77,12 +77,12 @@ export function getHighlightLanguages() {
   providers: [
     CmsAuthGuard,
 
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializer,
-      multi: true,
-      deps: [AuthService],
-    },
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: appInitializer,
+    //   multi: true,
+    //   deps: [AuthService],
+    // },
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {

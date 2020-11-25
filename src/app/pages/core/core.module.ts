@@ -14,13 +14,14 @@ import {
   CoreSiteCategoryCmsModuleService,
   CoreSiteCategoryModuleService,
 } from 'ntk-cms-api';
+import { CoreSiteCategorySelectComponent } from './siteCategory/select/select.component';
 
 @NgModule({
   imports: [
     CommonModule,
     CoreRoutes
   ],
-  declarations: [],
+  declarations: [CoreSiteCategorySelectComponent],
   exports: [],
   providers: [
 

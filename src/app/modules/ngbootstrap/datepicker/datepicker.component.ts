@@ -734,7 +734,7 @@ export class DatepickerComponent implements OnInit {
   disabled = true;
   hoveredDate: NgbDateStruct;
 
-  fromDate: NgbDateStruct;
+  FromDate: NgbDateStruct;
   toDate: NgbDateStruct;
   model1: Date;
   model2: Date;
