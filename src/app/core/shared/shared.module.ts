@@ -1,6 +1,6 @@
 ﻿import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { CmsExportContentListComponent } from './cmsExportContentList/cmsExportContentList.component';
@@ -50,7 +50,7 @@ import { TreeModule } from '@circlon/angular-tree-component';
   /* No providers here! Since they’ll be already provided in AppModule. */
 })
 export class SharedModule {
-  static forRoot(): ModuleWithProviders<SharedModule> {
+  static forRoot(): any {
     // Forcing the whole app to use the returned providers from the AppModule only.
     return {
       ngModule: SharedModule,

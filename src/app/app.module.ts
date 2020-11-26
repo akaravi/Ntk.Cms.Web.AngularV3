@@ -83,16 +83,16 @@ export function getHighlightLanguages() {
     //   multi: true,
     //   deps: [AuthService],
     // },
-    {
-      provide: HIGHLIGHT_OPTIONS,
-      useValue: {
-        languages: getHighlightLanguages,
-      },
-    },
+    // {
+    //   provide: HIGHLIGHT_OPTIONS,
+    //   useValue: {
+    //     languages: getHighlightLanguages,
+    //   },
+    // },
     PersianCalendarService,
-    {
-      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+    // },
     CoreAuthService
   ],
   bootstrap: [AppComponent],
