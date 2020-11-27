@@ -1,12 +1,9 @@
-import {Component, OnInit, OnDestroy, ChangeDetectorRef} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Subscription, Observable} from 'rxjs';
-import {first} from 'rxjs/operators';
-import {UserModel} from '../_models/user.model';
 import {AuthService} from '../_services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthUserSignInModel, CaptchaModel, CoreAuthService} from 'ntk-cms-api';
-import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-login',
@@ -20,14 +17,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 
     // KeenThemes mock, change it to:
-     defaultAuth = {
-       email: '',
-       password: '',
-     };
-    // defaultAuth: any = {
-    //     email: 'admin@demo.com',
-    //     password: 'demo',
-    // };
+    defaultAuth = {
+        email: '',
+        password: '',
+    };
     loginForm: FormGroup;
     hasError: boolean;
     returnUrl: string;
@@ -90,23 +83,24 @@ export class LoginComponent implements OnInit, OnDestroy {
     submit() {
         this.hasError = false;
         this.model.CaptchaKey = this.captchaModel.Key;
-        this.coreAuthService.ServiceSigninUser(this.model).subscribe((res) => {
-            if (res.IsSuccess) {
-                // localStorage.setItem('userToken', res.Item.Token);
-                // this.authService
-                //     .login('admin@demo.com', 'demo')
-                //     .pipe(first())
-                //     .subscribe((user: UserModel) => {
-                //         if (user) {
-                            this.router.navigate([this.returnUrl]);
+        this.coreAuthService.ServiceSigninUser(this.model).subscribe(
+            (res) => {
+                if (res.IsSuccess) {
+                    // localStorage.setItem('userToken', res.Item.Token);
+                    // this.authService
+                    //     .login('admin@demo.com', 'demo')
+                    //     .pipe(first())
+                    //     .subscribe((user: UserModel) => {
+                    //         if (user) {
+                    this.router.navigate([this.returnUrl]);
                     //     } else {
                     //         this.hasError = true;
                     //     }
                     // });
-            } else {
-                this.onCaptchaOrder();
-            }
-        });
+                } else {
+                    this.onCaptchaOrder();
+                }
+            });
     }
 
     onCaptchaOrder(): void {
