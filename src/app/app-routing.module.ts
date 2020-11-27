@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CmsAuthGuard } from './core/services/core/auth.guard.service';
-import { AuthGuard } from './modules/auth/_services/auth.guard';
+import { CmsAuthGuard } from './core/services/core/cmsAuthGuard.service';
+import { CmsAuthGuardChild } from './core/services/core/cmsAuthGuardChild.service';
+
 
 export const routes: Routes = [
   {
@@ -28,11 +29,14 @@ export const routes: Routes = [
   },
   {
     path: '',
-    canActivate: [AuthGuard],
+    canActivate: [CmsAuthGuard],
+    canActivateChild: [CmsAuthGuardChild],
     loadChildren: () =>
       import('./pages/layout.module').then((m) => m.LayoutModule),
   },
-  { path: '**', redirectTo: 'errors/404', pathMatch: 'full' },
+  
+  // بعد که پروزه کامل شد فعال شود
+  // { path: '**', redirectTo: 'errors/404', pathMatch: 'full' },
 ];
 
 @NgModule({

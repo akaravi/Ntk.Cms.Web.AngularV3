@@ -24,7 +24,10 @@ import { CoreAuthService, EnumDeviceType, EnumOperatingSystemType, TokenDeviceCl
 import { ToastrModule } from 'ngx-toastr';
 import { PersianCalendarService } from './core/common/pipe/PersianDatePipe/persian-date.service';
 import { AuthInterceptor } from './core/common/interceptor/auth-interceptor.service';
-import { CmsAuthGuard } from './core/services/core/auth.guard.service';
+import { CmsAuthGuard } from './core/services/core/cmsAuthGuard.service';
+import { CmsAuthGuardChild} from './core/services/core/cmsAuthGuardChild.service';
+import { Router } from '@angular/router';
+
 
 // function appInitializer(authService: AuthService) {
 //   return () => {
@@ -76,19 +79,19 @@ export function getHighlightLanguages() {
   ],
   providers: [
     CmsAuthGuard,
-
+    CmsAuthGuardChild,
     // {
     //   provide: APP_INITIALIZER,
     //   useFactory: appInitializer,
     //   multi: true,
     //   deps: [AuthService],
     // },
-    // {
-    //   provide: HIGHLIGHT_OPTIONS,
-    //   useValue: {
-    //     languages: getHighlightLanguages,
-    //   },
-    // },
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        languages: getHighlightLanguages,
+      },
+    },
     PersianCalendarService,
     // {
     //   provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
@@ -97,12 +100,14 @@ export function getHighlightLanguages() {
   ],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {
   constructor(private coreAuthService: CoreAuthService) {
     // karavi:Important For Test To Local Service
     if (environment.cmsServerConfig.configApiServerPath && environment.cmsServerConfig.configApiServerPath.length > 0) {
       this.coreAuthService.setConfig(environment.cmsServerConfig.configApiServerPath);
     }
+
 
     const DeviceToken = this.coreAuthService.getDeviceToken();
     if (!DeviceToken || DeviceToken.length === 0) {
@@ -129,4 +134,10 @@ export class AppModule {
     }
   }
 
+}
+declare module '@angular/core' {
+  interface ModuleWithProviders<T = any> {
+      ngModule: Type<T>;
+      providers?: Provider[];
+  }
 }

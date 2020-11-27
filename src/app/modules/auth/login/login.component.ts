@@ -20,14 +20,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 
     // KeenThemes mock, change it to:
-    // defaultAuth = {
-    //   email: '',
-    //   password: '',
+     defaultAuth = {
+       email: '',
+       password: '',
+     };
+    // defaultAuth: any = {
+    //     email: 'admin@demo.com',
+    //     password: 'demo',
     // };
-    defaultAuth: any = {
-        email: 'admin@demo.com',
-        password: 'demo',
-    };
     loginForm: FormGroup;
     hasError: boolean;
     returnUrl: string;
@@ -92,17 +92,17 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.model.CaptchaKey = this.captchaModel.Key;
         this.coreAuthService.ServiceSigninUser(this.model).subscribe((res) => {
             if (res.IsSuccess) {
-                localStorage.setItem('userToken', res.Item.Token);
-                this.authService
-                    .login('admin@demo.com', 'demo')
-                    .pipe(first())
-                    .subscribe((user: UserModel) => {
-                        if (user) {
+                // localStorage.setItem('userToken', res.Item.Token);
+                // this.authService
+                //     .login('admin@demo.com', 'demo')
+                //     .pipe(first())
+                //     .subscribe((user: UserModel) => {
+                //         if (user) {
                             this.router.navigate([this.returnUrl]);
-                        } else {
-                            this.hasError = true;
-                        }
-                    });
+                    //     } else {
+                    //         this.hasError = true;
+                    //     }
+                    // });
             } else {
                 this.onCaptchaOrder();
             }
