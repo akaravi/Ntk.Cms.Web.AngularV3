@@ -27,7 +27,7 @@ export const locale = {
         CONTACT: 'تماس',
       },
       LOGIN: {
-        TITLE: 'Login Account',
+        TITLE: 'حساب کاربری',
         BUTTON: 'ورود به حساب',
       },
       FORGOT: {
@@ -43,8 +43,8 @@ export const locale = {
       INPUT: {
         EMAIL: 'ایمیل',
         FULLNAME: 'Fullname',
-        PASSWORD: 'Password',
-        CONFIRM_PASSWORD: 'Confirm Password',
+        PASSWORD: 'پسورد',
+        CONFIRM_PASSWORD: 'تکرار پسورد',
         USERNAME: 'Username'
       },
       VALIDATION: {
