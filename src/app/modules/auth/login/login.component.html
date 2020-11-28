@@ -11,10 +11,9 @@
     <!--begin::Title-->
     <div class="pb-13 pt-lg-0 pt-5">
       <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
-        Welcome to Metronic
+        {{'TRANSLATOR.WELCOME' | translate}}
       </h3>
-      <span class="text-muted font-weight-bold font-size-h4"
-        >New Here?
+      <span class="text-muted font-weight-bold font-size-h4">
         <a
           [routerLink]="'/auth/registration'"
           id="kt_login_signup"
@@ -26,21 +25,20 @@
     <!--end::Title-->
 
     <!-- begin::Alert info-->
-    <ng-container *ngIf="!hasError">
-      <div class="mb-10 alert alert-custom alert-light-info alert-dismissible">
-        <div class="alert-text">
-          Use account <strong>{{ defaultAuth.email }}</strong> and password
-          <strong>{{ defaultAuth.password }}</strong> to continue.
-        </div>
-      </div>
-    </ng-container>
+<!--    <ng-container *ngIf="!hasError">-->
+<!--      <div class="mb-10 alert alert-custom alert-light-info alert-dismissible">-->
+<!--        <div class="alert-text">-->
+<!--          Use account <strong>{{ defaultAuth.email }}</strong> and password-->
+<!--          <strong>{{ defaultAuth.password }}</strong> to continue.-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </ng-container>-->
     <!-- end::Alert info-->
 
     <!-- begin::Alert error-->
     <ng-container *ngIf="hasError">
       <div
-        class="mb-10 alert alert-custom alert-light-danger alert-dismissible"
-      >
+        class="mb-10 alert alert-custom alert-light-danger alert-dismissible">
         <div class="alert-text">The login details are incorrect</div>
       </div>
     </ng-container>
@@ -50,7 +48,7 @@
     <div class="form-group">
       <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
       <input
-        [(ngModel)]="model.Email"
+        [(ngModel)]="modelData.Email"
         class="form-control form-control-solid h-auto py-7 px-6 rounded-lg"
         type="email"
         name="email"
@@ -109,7 +107,7 @@
       </div>
 
       <input
-        [(ngModel)]="model.Password"
+        [(ngModel)]="modelData.Password"
         class="form-control form-control-solid h-auto py-7 px-6 rounded-lg"
         type="password"
         name="password"
@@ -143,14 +141,29 @@
       ></ng-container>
     </div>
     <!--end::Form group-->
+
+    <!--begin::Form group-->
     <div class="form-group">
-    <img src="{{captchaModel.Image}}" (click)="onCaptchaOrder()" alt="">
-    <input [(ngModel)]="model.CaptchaText"
-           formControlName="captchaText"
-           autocomplete="off"  type="text"
-           name="captchaText" class="form-control form-control-solid h-auto py-7 px-6 rounded-lg"
-           placeholder="محتوای عکس" />
+      <img src="{{captchaModel.Image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
+      <input
+              [(ngModel)]="modelData.CaptchaText"
+              class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
+              type="text"
+              placeholder="CaptchaCode"
+              name="captcha"
+              autocomplete="off"
+              formControlName="captcha"
+              [ngClass]="{'is-invalid': loginForm.controls['captcha'].invalid}"/>
+      <ng-container
+              [ngTemplateOutlet]="formError"
+              [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'captcha is required',
+          control: loginForm.controls['captcha']
+        }"
+      ></ng-container>
     </div>
+    <!--end::Form group-->
 
 
     <!--begin::Action-->

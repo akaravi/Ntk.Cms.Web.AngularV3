@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Subscription, Observable} from 'rxjs';
+import {Subscription, Observable, interval} from 'rxjs';
 import {AuthService} from '../_services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthUserSignInModel, CaptchaModel, CoreAuthService} from 'ntk-cms-api';
@@ -12,22 +12,19 @@ import {AuthUserSignInModel, CaptchaModel, CoreAuthService} from 'ntk-cms-api';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-    model: AuthUserSignInModel = new AuthUserSignInModel();
+    modelData: AuthUserSignInModel = new AuthUserSignInModel();
     captchaModel: CaptchaModel = new CaptchaModel();
-
+    expireDate: string;
+    source = interval(1000 * 60 * 5);
 
     // KeenThemes mock, change it to:
-    defaultAuth = {
-        email: '',
-        password: '',
-    };
     loginForm: FormGroup;
     hasError: boolean;
     returnUrl: string;
     isLoading$: Observable<boolean>;
 
     // private fields
-    private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
+    unsubscribe: Subscription[] = [];
 
     constructor(
         private fb: FormBuilder,
@@ -49,6 +46,9 @@ export class LoginComponent implements OnInit, OnDestroy {
         // get return url from route parameters or default to '/'
         this.returnUrl =
             this.route.snapshot.queryParams['returnUrl'.toString()] || '/';
+        this.source.subscribe(() => {
+            this.onCaptchaOrder();
+        });
     }
 
     // convenience getter for easy access to form fields
@@ -58,9 +58,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     initForm() {
         this.loginForm = this.fb.group({
-            captchaText: null,
+            captcha: [
+                '',
+                Validators.compose([
+                    Validators.required
+                ]),
+            ],
             email: [
-                this.defaultAuth.email,
+                '',
                 Validators.compose([
                     Validators.required,
                     Validators.email,
@@ -70,7 +75,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                 ]),
             ],
             password: [
-                this.defaultAuth.password,
+                '',
                 Validators.compose([
                     Validators.required,
                     Validators.minLength(3),
@@ -82,21 +87,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     submit() {
         this.hasError = false;
-        this.model.CaptchaKey = this.captchaModel.Key;
-        this.coreAuthService.ServiceSigninUser(this.model).subscribe(
+        this.modelData.CaptchaKey = this.captchaModel.Key;
+        this.coreAuthService.ServiceSigninUser(this.modelData).subscribe(
             (res) => {
                 if (res.IsSuccess) {
-                    // localStorage.setItem('userToken', res.Item.Token);
-                    // this.authService
-                    //     .login('admin@demo.com', 'demo')
-                    //     .pipe(first())
-                    //     .subscribe((user: UserModel) => {
-                    //         if (user) {
                     this.router.navigate([this.returnUrl]);
-                    //     } else {
-                    //         this.hasError = true;
-                    //     }
-                    // });
                 } else {
                     this.onCaptchaOrder();
                 }
@@ -104,10 +99,17 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     onCaptchaOrder(): void {
-        this.model.CaptchaText = '';
+        this.modelData.CaptchaText = '';
         this.coreAuthService.ServiceCaptcha().subscribe(
             (next) => {
                 this.captchaModel = next.Item;
+                this.expireDate = next.Item.Expire.split('+')[1];
+                const startDate = new Date();
+                const endDate = new Date(next.Item.Expire);
+                const seconds = (endDate.getTime() - startDate.getTime());
+                setTimeout(() => {
+                    this.onCaptchaOrder();
+                }, seconds);
             }
         );
     }

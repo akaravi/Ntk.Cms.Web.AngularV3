@@ -4,7 +4,6 @@ import {Subscription, Observable} from 'rxjs';
 import {AuthService} from '../_services/auth.service';
 import {Router} from '@angular/router';
 import {ConfirmPasswordValidator} from './confirm-password.validator';
-import {UserModel} from '../_models/user.model';
 import {first} from 'rxjs/operators';
 import {AuthUserSignUpModel, CaptchaModel, CoreAuthService} from 'ntk-cms-api';
 
@@ -97,8 +96,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
                     '',
                     Validators.compose([
                         Validators.required,
-                        Validators.minLength(3),
-                        Validators.maxLength(100),
                     ]),
                 ],
                 agree: [false, Validators.compose([Validators.required])],

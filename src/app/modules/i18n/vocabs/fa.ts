@@ -4,6 +4,7 @@ export const locale = {
   data: {
     TRANSLATOR: {
       SELECT: 'زبان خود را انتخاب کنید',
+      WELCOME: 'خوش آمدید'
     },
     MENU: {
       NEW: 'جدید',
