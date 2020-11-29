@@ -53,7 +53,8 @@ export const locale = {
         PASSWORD: 'رمز عبور',
         CONFIRM_PASSWORD: 'تکرار رمز عبور',
         USERNAME: 'نام کاربری',
-        CAPTCHACODE: 'کد کپچا'
+        CAPTCHACODE: 'کد کپچا',
+        MOBILE: 'شماره همراه'
       },
       VALIDATION: {
         INVALID: '{{name}} is not valid',
