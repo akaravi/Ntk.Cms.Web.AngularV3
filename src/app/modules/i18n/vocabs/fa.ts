@@ -43,10 +43,11 @@ export const locale = {
       },
       INPUT: {
         EMAIL: 'ایمیل',
-        FULLNAME: 'Fullname',
-        PASSWORD: 'پسورد',
-        CONFIRM_PASSWORD: 'تکرار پسورد',
-        USERNAME: 'Username'
+        FIRSTNAME: 'نام',
+        LASTNAME: 'نام خانوادگی',
+        PASSWORD: 'رمز عبور',
+        CONFIRM_PASSWORD: 'تکرار رمز عبور',
+        USERNAME: 'نام کاربری'
       },
       VALIDATION: {
         INVALID: '{{name}} is not valid',

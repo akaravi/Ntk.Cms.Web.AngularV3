@@ -46,7 +46,7 @@
 
     <!--begin::Form group-->
     <div class="form-group">
-      <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
+      <label class="font-size-h6 font-weight-bolder text-dark">{{'AUTH.INPUT.EMAIL' | translate}}</label>
       <input
         [(ngModel)]="modelData.Email"
         class="form-control form-control-solid h-auto py-7 px-6 rounded-lg"
@@ -94,15 +94,14 @@
     <!--begin::Form group-->
     <div class="form-group">
       <div class="d-flex justify-content-between mt-n5">
-        <label class="font-size-h6 font-weight-bolder text-dark pt-5"
-          >Password</label
+        <label class="font-size-h6 font-weight-bolder text-dark pt-5">{{'AUTH.INPUT.PASSWORD' | translate}}</label
         >
         <a
           routerLink="/auth/forgot-password"
           class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5"
           id="kt_login_forgot"
         >
-          Forgot Password ?
+          {{'AUTH.FORGOT.TITLE' | translate}}
         </a>
       </div>
 

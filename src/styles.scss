@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: IRANSansWeb;
+  src: url(assets/fonts/IRANSansWeb.ttf);
+
+}
+body{
+  font-family: 'IRANSansWeb';
+}
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700");
 // Global vendors
 @import "~bootstrap/dist/css/bootstrap.css";
