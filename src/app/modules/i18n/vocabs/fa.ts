@@ -29,17 +29,22 @@ export const locale = {
       },
       LOGIN: {
         TITLE: 'حساب کاربری',
-        BUTTON: 'ورود به حساب',
+        BUTTON: 'ورود به حساب کاربری',
       },
       FORGOT: {
         TITLE: 'یادآوری پسورد؟',
-        DESC: 'Enter your email to reset your password',
-        SUCCESS: 'Your account has been successfully reset.'
+        DESC: 'ایمیل تان را وارد کنید تا مجددا" رمز عبور تان بازنشانی شود',
+        SUCCESS: 'Your account has been successfully reset.',
+        RESET_PASSWORD: 'تنظیم مجدد رمز عبور'
       },
       REGISTER: {
+        SIGNUP: 'ثبت نام',
         TITLE: 'ساخت حساب',
-        DESC: 'Enter your details to create your account',
-        SUCCESS: 'Your account has been successfuly registered.'
+        DESC: 'برای ایجاد حساب کاربری خود ، جزئیات خود را وارد کنید',
+        SUCCESS: 'Your account has been successfuly registered.',
+        AGREE_TERMS: 'آیا شرایط و ضوابط را می پذیرید؟',
+        CREATE_AN_ACCOUNT: 'ایجاد حساب کاربری',
+        RETURN_TO_LOGIN: 'بازگشت به صفحه ورود'
       },
       INPUT: {
         EMAIL: 'ایمیل',
@@ -47,7 +52,8 @@ export const locale = {
         LASTNAME: 'نام خانوادگی',
         PASSWORD: 'رمز عبور',
         CONFIRM_PASSWORD: 'تکرار رمز عبور',
-        USERNAME: 'نام کاربری'
+        USERNAME: 'نام کاربری',
+        CAPTCHACODE: 'کد کپچا'
       },
       VALIDATION: {
         INVALID: '{{name}} is not valid',

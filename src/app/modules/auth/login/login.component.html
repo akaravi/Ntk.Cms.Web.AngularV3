@@ -24,17 +24,6 @@
     </div>
     <!--end::Title-->
 
-    <!-- begin::Alert info-->
-<!--    <ng-container *ngIf="!hasError">-->
-<!--      <div class="mb-10 alert alert-custom alert-light-info alert-dismissible">-->
-<!--        <div class="alert-text">-->
-<!--          Use account <strong>{{ defaultAuth.email }}</strong> and password-->
-<!--          <strong>{{ defaultAuth.password }}</strong> to continue.-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </ng-container>-->
-    <!-- end::Alert info-->
-
     <!-- begin::Alert error-->
     <ng-container *ngIf="hasError">
       <div
@@ -148,7 +137,7 @@
               [(ngModel)]="modelData.CaptchaText"
               class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
               type="text"
-              placeholder="CaptchaCode"
+              placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}"
               name="captcha"
               autocomplete="off"
               formControlName="captcha"
@@ -164,28 +153,15 @@
     </div>
     <!--end::Form group-->
 
-
     <!--begin::Action-->
     <div class="pb-lg-0 pb-5">
       <button
         type="submit"
         id="kt_login_signin_submit"
-        class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3"
-        [disabled]="loginForm.invalid"
-      >
-        Sign In
+        class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3"
+        [disabled]="loginForm.invalid">
+        {{'AUTH.LOGIN.BUTTON' | translate}}
       </button>
-
-      <button
-        type="button"
-        class="btn btn-light-primary font-weight-bolder px-8 py-4 my-3 font-size-lg"
-      >
-        <span class="svg-icon svg-icon-md">
-          <img src="./assets/media/svg/social-icons/google.svg" />
-        </span>
-        Sign in with Google
-      </button>
-
       <ng-container *ngIf="isLoading$ | async">
         <span class="spinner spinner-primary ml-5"></span>
       </ng-container>

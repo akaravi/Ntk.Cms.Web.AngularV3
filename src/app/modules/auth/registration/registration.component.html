@@ -11,19 +11,17 @@
         <!--begin::Title-->
         <div class="pb-13 pt-lg-0 pt-5">
             <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
-                Sign Up
+                {{'AUTH.REGISTER.SIGNUP' | translate}}
             </h3>
             <p class="text-muted font-weight-bold font-size-h4">
-                Enter your details to create your account
+                {{'AUTH.REGISTER.DESC' | translate}}
             </p>
         </div>
         <!--end::Title-->
 
         <!-- begin::Alert error-->
         <ng-container *ngIf="hasError">
-            <div
-                    class="mb-10 alert alert-custom alert-light-danger alert-dismissible"
-            >
+            <div class="mb-10 alert alert-custom alert-light-danger alert-dismissible">
                 <div class="alert-text">The registration details are incorrect</div>
             </div>
         </ng-container>
@@ -31,14 +29,13 @@
 
         <!--begin::Form group-->
         <div class="form-group">
-            <label class="font-size-h6 font-weight-bolder text-dark">نام</label>
+            <label class="font-size-h6 font-weight-bolder text-dark"> {{'AUTH.INPUT.FIRSTNAME' | translate}}</label>
             <input
                     [(ngModel)]="registerModel.Name"
                     class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
                     type="text"
                     name="firstName"
                     formControlName="firstName"
-                    placeholder="firstName"
                     autocomplete="off"
                     [ngClass]="{
           'is-invalid': registrationForm.controls['firstName'].invalid
@@ -74,14 +71,13 @@
 
         <!--begin::Form group-->
         <div class="form-group">
-            <label class="font-size-h6 font-weight-bolder text-dark">نام خانوادگی</label>
+            <label class="font-size-h6 font-weight-bolder text-dark"> {{'AUTH.INPUT.LASTNAME' | translate}}</label>
             <input
                     [(ngModel)]="registerModel.Family"
                     class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
                     type="text"
                     name="lastName"
                     formControlName="lastName"
-                    placeholder="lastName"
                     autocomplete="off"
                     [ngClass]="{
           'is-invalid': registrationForm.controls['lastName'].invalid
@@ -117,12 +113,11 @@
 
         <!--begin::Form group-->
         <div class="form-group">
-            <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
+            <label class="font-size-h6 font-weight-bolder text-dark">{{'AUTH.INPUT.EMAIL' | translate}}</label>
             <input
                     [(ngModel)]="registerModel.Email"
                     class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
                     type="email"
-                    placeholder="Email"
                     name="email"
                     formControlName="email"
                     autocomplete="off"
@@ -165,12 +160,11 @@
 
         <!--begin::Form group-->
         <div class="form-group">
-            <label class="font-size-h6 font-weight-bolder text-dark pt-5">Password</label>
+            <label class="font-size-h6 font-weight-bolder text-dark pt-5">{{'AUTH.INPUT.PASSWORD' | translate}}</label>
             <input
                     [(ngModel)]="registerModel.Password"
                     class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
                     type="password"
-                    placeholder="Password"
                     name="password"
                     formControlName="password"
                     autocomplete="off"
@@ -207,12 +201,11 @@
 
         <!--begin::Form group-->
         <div class="form-group">
-            <label class="font-size-h6 font-weight-bolder text-dark pt-5">Confirm Password</label>
+            <label class="font-size-h6 font-weight-bolder text-dark pt-5">{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}</label>
             <input
                     [(ngModel)]="registerModel.RePassword"
                     class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
                     type="password"
-                    placeholder="Confirm password"
                     name="cPassword"
                     autocomplete="off"
                     formControlName="cPassword"
@@ -267,7 +260,7 @@
                     [(ngModel)]="registerModel.CaptchaText"
                     class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
                     type="text"
-                    placeholder="CaptchaCode"
+                    placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}"
                     name="captcha"
                     autocomplete="off"
                     formControlName="captcha"
@@ -287,12 +280,11 @@
         <!--begin::Form group-->
         <div class="form-group">
             <label class="checkbox mb-0">
-                <input [(ngModel)]="registerModel.Roulaccespt" type="checkbox" formControlName="agree" name="agree"/>&nbsp;I
-                Agree the&nbsp;<a
-                    href="https://keenthemes.com/metronic/?page=faq"
-                    target="_blank"
-            >terms and conditions</a>.&nbsp;
-                <span></span>
+                <input [(ngModel)]="registerModel.Roulaccespt" type="checkbox" formControlName="agree" name="agree"/>
+                <a href="https://keenthemes.com/metronic/?page=faq" target="_blank">
+                    {{'AUTH.REGISTER.AGREE_TERMS' | translate}}
+                </a>
+                <span class="mr-2"></span>
             </label>
         </div>
         <!--end::Form group-->
@@ -303,19 +295,16 @@
                     type="submit"
                     id="kt_login_signup_submit"
                     [disabled]="
-          registrationForm.invalid || !registrationForm.controls['agree'].value
-        "
-                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4"
-            >
-                Submit
+          registrationForm.invalid || !registrationForm.controls['agree'].value"
+                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-2">
+              {{'AUTH.REGISTER.CREATE_AN_ACCOUNT' | translate}}
             </button>
             <a
-                    routerLink="/auth/login"
-                    type="button"
-                    id="kt_login_signup_cancel"
-                    class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3"
-            >
-                Cancel
+                routerLink="/auth/login"
+                type="button"
+                id="kt_login_signup_cancel"
+                class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">
+                {{'AUTH.REGISTER.RETURN_TO_LOGIN' | translate}}
             </a>
 
             <ng-container *ngIf="isLoading$ | async">
