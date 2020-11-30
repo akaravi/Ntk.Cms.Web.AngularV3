@@ -53,6 +53,20 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'site',
+        loadChildren: () =>
+            import('../pages/core/site/site.module').then(
+                (m) => m.SiteModule
+            ),
+      },
+      {
+        path: 'news',
+        loadChildren: () =>
+            import('../pages/news/news.module').then(
+                (m) => m.NewsModule
+            ),
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',

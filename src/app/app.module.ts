@@ -1,7 +1,7 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TranslateModule } from '@ngx-translate/core';
@@ -9,24 +9,19 @@ import { InlineSVGModule } from 'ng-inline-svg';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './modules/auth/_services/auth.service';
 import { FakeAPIService } from './_helpers/fake/fake-api.service';
 import { environment } from 'src/environments/environment';
-// Highlight JS
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
-import highlight from 'highlight.js/lib/highlight';
 import xml from 'highlight.js/lib/languages/xml';
 import json from 'highlight.js/lib/languages/json';
 import scss from 'highlight.js/lib/languages/scss';
 import typescript from 'highlight.js/lib/languages/typescript';
 import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
-import { CoreAuthService, EnumDeviceType, EnumOperatingSystemType, TokenDeviceClientInfoDtoModel } from 'ntk-cms-api';
+import {CoreAuthService, EnumDeviceType, EnumOperatingSystemType, TokenDeviceClientInfoDtoModel} from 'ntk-cms-api';
 import { ToastrModule } from 'ngx-toastr';
 import { PersianCalendarService } from './core/common/pipe/PersianDatePipe/persian-date.service';
-import { AuthInterceptor } from './core/common/interceptor/auth-interceptor.service';
 import { CmsAuthGuard } from './core/services/core/cmsAuthGuard.service';
 import { CmsAuthGuardChild} from './core/services/core/cmsAuthGuardChild.service';
-import { Router } from '@angular/router';
 
 
 // function appInitializer(authService: AuthService) {
@@ -78,6 +73,7 @@ export function getHighlightLanguages() {
     NgbModule,
   ],
   providers: [
+
     CmsAuthGuard,
     CmsAuthGuardChild,
     // {

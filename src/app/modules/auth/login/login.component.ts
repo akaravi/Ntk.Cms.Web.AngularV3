@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.coreAuthService.ServiceSigninUser(this.modelData).subscribe(
             (res) => {
                 if (res.IsSuccess) {
-                    this.router.navigate([this.returnUrl]);
+                    this.router.navigate(['/site/selection']);
                 } else {
                     this.onCaptchaOrder();
                 }

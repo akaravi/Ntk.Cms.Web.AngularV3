@@ -16,27 +16,12 @@ export const routes: Routes = [
       import('./modules/errors/errors.module').then((m) => m.ErrorsModule),
   },
   {
-    path: 'core',
-    canActivate: [CmsAuthGuard],
-    loadChildren: () =>
-      import('./pages/core/core.module').then((m) => m.CoreModule),
-  },
-  {
-    path: 'news',
-    canActivate: [CmsAuthGuard],
-    loadChildren: () =>
-      import('./pages/news/news.module').then((m) => m.NewsModule),
-  },
-  {
     path: '',
     canActivate: [CmsAuthGuard],
     canActivateChild: [CmsAuthGuardChild],
     loadChildren: () =>
       import('./pages/layout.module').then((m) => m.LayoutModule),
   },
-  
-  // بعد که پروزه کامل شد فعال شود
-  // { path: '**', redirectTo: 'errors/404', pathMatch: 'full' },
 ];
 
 @NgModule({

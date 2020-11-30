@@ -8,6 +8,7 @@ import {NewsContentListComponent} from './content/list/list.component';
 import {NewsContentListResolver} from './content/list/list.resolver';
 import {NewsComponent} from './news.component';
 import {CommentComponent} from './content/list/comment/comment.component';
+import {ListComponent} from '../../modules/material/layout/list/list.component';
 
 
 const routes: Routes = [
@@ -27,13 +28,13 @@ const routes: Routes = [
         path: 'list/comment/:id',
         component: CommentComponent
       },
-    ]
+    ],
   },
   {
-    path: 'news/list',
-    component: NewsContentListComponent,
+    path: 'list',
+    component: ListComponent,
     resolve: {list: NewsContentListResolver}
-  }
+  },
   // {
   //   path: 'category',
   //   component: NewsCategoryListComponent
