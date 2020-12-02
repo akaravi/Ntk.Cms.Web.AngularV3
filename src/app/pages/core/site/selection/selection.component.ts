@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {environment} from '../../../../../environments/environment';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 import {AuthRenewTokenModel, CoreAuthService, CoreSiteModel, CoreSiteService, ErrorExcptionResult, FilterModel} from 'ntk-cms-api';
@@ -26,12 +26,13 @@ export class SelectionComponent implements OnInit {
         private toastrService: CmsToastrService,
         private publicHelper: PublicHelper,
         private router: Router,
+        private activatedRoute: ActivatedRoute
     ) {
 
     }
 
     ngOnInit(): void {
-        this.getAllSite();
+        this.dataModel = this.activatedRoute.snapshot.data.list;
     }
 
     getAllSite(): void {

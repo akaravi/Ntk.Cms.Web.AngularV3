@@ -4,10 +4,12 @@ import { CoreSiteAddFirstComponent } from './addFirst/addFirst.component';
 
 import {SiteComponent} from './site.component';
 import {SelectionComponent} from './selection/selection.component';
+import {SiteResolver} from './site.resolver';
 
 const routes: Routes = [
   {
     path: '',
+    resolve: { list: SiteResolver},
     children: [
       {
         path: 'selection',
