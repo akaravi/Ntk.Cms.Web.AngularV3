@@ -35,20 +35,20 @@ export class SelectionComponent implements OnInit {
         this.dataModel = this.activatedRoute.snapshot.data.list;
     }
 
-    getAllSite(): void {
-        this.subManager.add(
-            this.coreSiteService.ServiceGetAll(this.filterModel).subscribe(
-                (res) => {
-                    if (res.IsSuccess) {
-                        this.dataModel = res;
-                    }
-                },
-                error => {
-                    this.toastrService.typeError(error);
-                }
-            )
-        );
-    }
+    // getAllSite(): void {
+    //     this.subManager.add(
+    //         this.coreSiteService.ServiceGetAll(this.filterModel).subscribe(
+    //             (res) => {
+    //                 if (res.IsSuccess) {
+    //                     this.dataModel = res;
+    //                 }
+    //             },
+    //             error => {
+    //                 this.toastrService.typeError(error);
+    //             }
+    //         )
+    //     );
+    // }
 
     clickSelectSite(id: number): void {
         let AuthModel: AuthRenewTokenModel;

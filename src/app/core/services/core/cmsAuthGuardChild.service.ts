@@ -13,7 +13,6 @@ export class CmsAuthGuardChild implements CanActivateChild {
     }
 
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        console.log('CmsAuthGuardChild run');
         const token = this.authService.getUserToken();
         if (token && token.length > 0) {
             return true;

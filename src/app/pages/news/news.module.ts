@@ -61,6 +61,7 @@ import {SharedModule} from 'src/app/core/shared/shared.module';
         TreeviewModule.forRoot(),
         NgxPersianModule,
         SharedModule.forRoot(),
+        SharedModule,
     ],
     entryComponents: [
         NewsCategoryDeleteComponent,

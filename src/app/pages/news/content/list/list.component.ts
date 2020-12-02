@@ -291,6 +291,6 @@ export class NewsContentListComponent implements OnInit {
   }
 
   onClickComment(id: number): void {
-    this.router.navigate(['comment/', id], { relativeTo: this.activatedRoute });
+    this.router.navigate(['news/comment/', id]);
   }
 }
