@@ -5,6 +5,9 @@
     width: 230px;
     margin-top: -85px;
     margin-right: 320px;">
-<tree-root #tree [nodes]="dataModelCategory.ListItems" [options]="optionsModelTree"  [focused]="true">
-  <template #loadingTemplate>Loading, please hold....</template>
-</tree-root>
+<div class="cursor-pointer">
+  <tree-root #tree [nodes]="dataModelCategory.ListItems" [options]="optionsModelTree"  [focused]="true">
+    <template #loadingTemplate>Loading, please hold....</template>
+  </tree-root>
+</div>
+

@@ -22,11 +22,11 @@ const routes: Routes = [
                 resolve: {list: NewsContentListResolver, getCategory: CategoryResolver}
             },
             {
-                path: 'add',
+                path: 'list/add',
                 component: NewsContentAddComponent
             },
             {
-                path: 'edit',
+                path: 'list/edit',
                 component: NewsContentEditComponent
             },
             {
