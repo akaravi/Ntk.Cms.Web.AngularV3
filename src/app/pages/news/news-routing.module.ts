@@ -8,6 +8,7 @@ import {NewsContentListComponent} from './content/list/list.component';
 import {NewsContentListResolver} from './content/list/list.resolver';
 import {NewsComponent} from './news.component';
 import {CommentComponent} from './content/list/comment/comment.component';
+import {CategoryResolver} from './category/category.resolver';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: NewsContentListComponent,
-                resolve: {list: NewsContentListResolver}
+                resolve: {list: NewsContentListResolver, getCategory: CategoryResolver}
             },
             {
                 path: 'add',

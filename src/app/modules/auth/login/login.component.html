@@ -49,7 +49,7 @@
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
           validation: 'required',
-          message: 'Email is required',
+          message: 'لطفا ایمیل خود را وارد کنید',
           control: loginForm.controls['email']
         }"
       ></ng-container>
@@ -57,7 +57,7 @@
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
           validation: 'email',
-          message: 'Email is invalid',
+          message: 'ایمیل مورد نظر نامعتبر است',
           control: loginForm.controls['email']
         }"
       ></ng-container>
@@ -65,7 +65,7 @@
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
           validation: 'minLength',
-          message: 'Email should have at least 3 symbols',
+          message: 'ایمیل باید حداقل 3 کارکتر داشته باشد',
           control: loginForm.controls['email']
         }"
       ></ng-container>
@@ -73,7 +73,7 @@
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
           validation: 'maxLength',
-          message: 'Email should have maximum 360 symbols',
+          message: 'ایمیل باید حداکثر دارای 320 کاراکتر باشد',
           control: loginForm.controls['email']
         }"
       ></ng-container>
@@ -107,7 +107,8 @@
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
           validation: 'required',
-          message: 'Password is required',
+          message: 'لطفا پسورد خود را وارد کنید' +
+           '',
           control: loginForm.controls['password']
         }"
       ></ng-container>
@@ -115,7 +116,7 @@
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
           validation: 'minlength',
-          message: 'Password should have at least 3 symbols',
+          message: 'پسورد باید حداقل 3 کارکتر داشته باشد',
           control: loginForm.controls['password']
         }"
       ></ng-container>
@@ -123,7 +124,7 @@
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
           validation: 'maxLength',
-          message: 'Password should have maximum 100 symbols',
+          message: 'پسورد باید حداکثر دارای 320 کاراکتر باشد',
           control: loginForm.controls['password']
         }"
       ></ng-container>
@@ -146,7 +147,7 @@
               [ngTemplateOutlet]="formError"
               [ngTemplateOutletContext]="{
           validation: 'required',
-          message: 'captcha is required',
+          message: 'لطفا کد کپچا را وارد کنید',
           control: loginForm.controls['captcha']
         }"
       ></ng-container>

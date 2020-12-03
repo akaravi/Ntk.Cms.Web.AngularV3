@@ -1,9 +1,10 @@
 
-import { Component, OnInit, Input, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ITreeOptions, KEYS, TreeComponent, TreeNode, TREE_ACTIONS } from '@circlon/angular-tree-component';
 import { ErrorExcptionResult, FilterModel, NewsCategoryModel, NewsCategoryService } from 'ntk-cms-api';
 import { ComponentOptionNewsCategoryModel } from 'src/app/core/models/news/componentOptionNewsCategoryModel';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -73,11 +74,17 @@ export class NewsCategorySelectComponent implements OnInit {
   };
   constructor(
     private toastrService: CmsToastrService,
-    public categoryService: NewsCategoryService
+    public categoryService: NewsCategoryService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.DataGetAllCategory();
+    this.loadingStatus = true;
+    if (this.activatedRoute.snapshot.data.getCategory) {
+      this.dataModelCategory = this.activatedRoute.snapshot.data.getCategory;
+      this.loadingStatus = false;
+    }
+   // this.DataGetAllCategory();
 
     // this.optionsData.methods = { ActionReload: () => this.onActionReload() }
     this.optionsData.methods = {

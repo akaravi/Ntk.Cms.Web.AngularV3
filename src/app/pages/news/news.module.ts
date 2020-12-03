@@ -36,6 +36,7 @@ import {NewsCategoryEditComponent} from './category/edit/edit.component';
 import {CommentComponent} from './content/list/comment/comment.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from 'src/app/core/shared/shared.module';
+import {CategoryResolver} from './category/category.resolver';
 
 
 @NgModule({
@@ -84,7 +85,7 @@ import {SharedModule} from 'src/app/core/shared/shared.module';
         ToastrService,
         CoreEnumService,
         NewsContentListResolver,
-
+        CategoryResolver
     ]
 })
 export class NewsModule {
