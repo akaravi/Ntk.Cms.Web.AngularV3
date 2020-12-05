@@ -37,6 +37,7 @@ import {CommentComponent} from './content/list/comment/comment.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from 'src/app/core/shared/shared.module';
 import {CategoryResolver} from './category/category.resolver';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import {CategoryResolver} from './category/category.resolver';
         NgxPersianModule,
         SharedModule.forRoot(),
         SharedModule,
+        CKEditorModule
     ],
     entryComponents: [
         NewsCategoryDeleteComponent,

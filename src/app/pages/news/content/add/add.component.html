@@ -4,7 +4,11 @@
         <div class="card card-custom card-transparent">
             <div class="card-body p-0">
                 <!--begin: ویزارد-->
-                <div class="wizard wizard-4 pb-7" id="kt_wizard_v4" data-wizard-state="first" data-wizard-clickable="true">
+                <div #wizard
+                     class="wizard wizard-4 pb-7"
+                     id="kt_wizard_v4"
+                     data-wizard-state="first"
+                     data-wizard-clickable="true">
                     <!--begin: ویزارد Nav-->
                     <div class="wizard-nav">
                         <div class="wizard-steps">
@@ -77,7 +81,8 @@
                             <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
                                 <div class="col-xl-12 col-xxl-7">
                                     <!--begin: ویزارد Form-->
-                                    <form [formGroup]="singUpContentForm" (ngSubmit)="onFormSubmit()" class="form mt-0 mt-lg-10 fv-plugins-bootstrap fv-plugins-framework" id="kt_form">
+                                    <form [formGroup]="singUpContentForm" (ngSubmit)="onFormSubmit()"
+                                          class="form mt-0 mt-lg-10 fv-plugins-bootstrap fv-plugins-framework" id="kt_form">
                                         <!--begin: ویزارد گام 1-->
                                         <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                             <div class="mb-10 font-weight-bold text-dark">اطلاعات الزامی</div>
@@ -152,9 +157,7 @@
                                                     </h3>
                                                 </div>
                                                 <div class="card-body">
-                                                    <label for="kt-ckeditor-1"></label><textarea [(ngModel)]="dataModel.Body" formControlName="ckeditor" name="kt-ckeditor-1" id="kt-ckeditor-1">
-
-                          </textarea>
+                                                    <ckeditor [editor]="editor" [data]="data"></ckeditor>
                                                 </div>
                                             </div>
 
@@ -171,9 +174,10 @@
                                         <!--begin: ویزارد گام 4-->
                                         <div class="pb-5" data-wizard-type="step-content">
                                             <h4 class="mb-10 font-weight-bold text-dark">موقعیت مکانی</h4>
+                                            <div id="map"></div>
                                             <div class="map-container">
                                                 <div class="map-frame">
-                                                    <div id="map"></div>
+
                                                 </div>
                                             </div>
                                         </div>
