@@ -2,7 +2,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { CoreEnumService, ErrorExcptionResult, FilterModel, FormInfoModel, NewsCategoryModel, NewsCategoryService } from 'ntk-cms-api';
+import { CoreEnumService, ErrorExceptionResult, FilterModel, FormInfoModel, NewsCategoryModel, NewsCategoryService } from 'ntk-cms-api';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 
 
@@ -25,8 +25,8 @@ export class NewsCategoryDeleteComponent implements OnInit {
 
   private dateModleInput: any;
 
-  dataModelResultCategory: ErrorExcptionResult<NewsCategoryModel> = new ErrorExcptionResult<NewsCategoryModel>();
-  dataModelResultCategoryAllData: ErrorExcptionResult<NewsCategoryModel> = new ErrorExcptionResult<NewsCategoryModel>();
+  dataModelResultCategory: ErrorExceptionResult<NewsCategoryModel> = new ErrorExceptionResult<NewsCategoryModel>();
+  dataModelResultCategoryAllData: ErrorExceptionResult<NewsCategoryModel> = new ErrorExceptionResult<NewsCategoryModel>();
 
   dataModel: any = {};
   @ViewChild('vform', { static: false }) formGroup: FormGroup;

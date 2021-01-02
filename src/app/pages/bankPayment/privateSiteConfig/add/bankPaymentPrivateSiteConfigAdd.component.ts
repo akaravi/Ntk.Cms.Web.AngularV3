@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild, ChangeDetectorRef } from '@angular
 import { FormGroup } from '@angular/forms';
 import {
     BankPaymentPrivateSiteConfigModel, BankPaymentPrivateSiteConfigService,
-    CoreEnumService, EnumModel, ErrorExcptionResult, FormInfoModel
+    CoreEnumService, EnumModel, ErrorExceptionResult, FormInfoModel
 } from 'ntk-cms-api';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 
@@ -17,10 +17,10 @@ export class BankPaymentPrivateSiteConfigAddComponent implements OnInit {
 
     @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
-    dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+    dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
     loadingStatus = false; // add one more property
     private dateModleInput: any;
-    dataModelResult: ErrorExcptionResult<BankPaymentPrivateSiteConfigModel> = new ErrorExcptionResult<BankPaymentPrivateSiteConfigModel>();
+    dataModelResult: ErrorExceptionResult<BankPaymentPrivateSiteConfigModel> = new ErrorExceptionResult<BankPaymentPrivateSiteConfigModel>();
     dataModel: BankPaymentPrivateSiteConfigModel = new BankPaymentPrivateSiteConfigModel();
     formInfo: FormInfoModel = new FormInfoModel();
 

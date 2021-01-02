@@ -1,60 +1,60 @@
-import {ErrorExcptionResult} from 'ntk-cms-api';
+import {ErrorExceptionResult} from 'ntk-cms-api';
 
 
 export class AccessHelper {
   constructor() {}
 
-  AccessDeleteRow(model: ErrorExcptionResult<any>): boolean {
+  AccessDeleteRow(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return model.Access.AccessDeleteRow;
   }
-  AccessWatchRow(model: ErrorExcptionResult<any>): boolean {
+  AccessWatchRow(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return false; // return model?.Access?.AccessWatchRow;
   }
-  AccessEditRow(model: ErrorExcptionResult<any>): boolean {
+  AccessEditRow(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return model.Access.AccessEditRow;
   }
-  AccessAddRow(model: ErrorExcptionResult<any>): boolean {
+  AccessAddRow(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return  model.Access.AccessAddRow;
   }
-  AccessRowInPanelDemo(model: ErrorExcptionResult<any>): boolean {
+  AccessRowInPanelDemo(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return model.Access.AccessRowInPanelDemo;
   }
-  AccessRowWatchInSharingCategory(model: ErrorExcptionResult<any>): boolean {
+  AccessRowWatchInSharingCategory(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return model.Access.AccessRowWatchInSharingCategory;
   }
-  AccessWatchRowOtherSiteId(model: ErrorExcptionResult<any>): boolean {
+  AccessWatchRowOtherSiteId(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return false;
   }
-  AccessWatchRowOtherCreatedBy(model: ErrorExcptionResult<any>): boolean {
+  AccessWatchRowOtherCreatedBy(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return model.Access.AccessWatchRowOtherCreatedBy;
   }
-  AccessEditRowOtherSiteId(model: ErrorExcptionResult<any>): boolean {
+  AccessEditRowOtherSiteId(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return model.Access.AccessEditRowOtherSiteId;
   }
-  AccessEditRowOtherCreatedBy(model: ErrorExcptionResult<any>): boolean {
+  AccessEditRowOtherCreatedBy(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return model.Access.AccessEditRowOtherCreatedBy;
   }
-  AccessDeleteRowOtherCreatedBy(model: ErrorExcptionResult<any>): boolean {
+  AccessDeleteRowOtherCreatedBy(model: ErrorExceptionResult<any>): boolean {
     if (!model) { return false; }
     if (!model.Access) { return false; }
     return model.Access.AccessDeleteRowOtherCreatedBy;

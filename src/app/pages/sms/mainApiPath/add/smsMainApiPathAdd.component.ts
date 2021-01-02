@@ -2,7 +2,7 @@ import {  Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
-import { CoreEnumService, EnumModel, ErrorExcptionResult, FormInfoModel, SmsMainApiPathModel, SmsMainApiPathService } from 'ntk-cms-api';
+import { CoreEnumService, EnumModel, ErrorExceptionResult, FormInfoModel, SmsMainApiPathModel, SmsMainApiPathService } from 'ntk-cms-api';
 import { ComponentOptionSmsMainApiPathModel } from 'src/app/core/models/sms/componentOptionSmsMainApiPathModel';
 
 
@@ -25,12 +25,12 @@ export class SmsMainApiPathAddComponent implements OnInit {
 
   formInfo: FormInfoModel = new FormInfoModel();
   dataModel: SmsMainApiPathModel = new SmsMainApiPathModel();
-  dataModelResult: ErrorExcptionResult<
+  dataModelResult: ErrorExceptionResult<
     SmsMainApiPathModel
-  > = new ErrorExcptionResult<SmsMainApiPathModel>();
+  > = new ErrorExceptionResult<SmsMainApiPathModel>();
   linkCategoryId: number;
   loadingStatus = false; // add one more property
-  dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+  dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
   constructor(
     private activatedRoute: ActivatedRoute,
     public smsMainApiPathService: SmsMainApiPathService,

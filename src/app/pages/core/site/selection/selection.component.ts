@@ -4,7 +4,7 @@ import {environment} from '../../../../../environments/environment';
 import {ActivatedRoute, Router} from '@angular/router';
 
 
-import {AuthRenewTokenModel, CoreAuthService, CoreSiteModel, CoreSiteService, ErrorExcptionResult, FilterModel} from 'ntk-cms-api';
+import {AuthRenewTokenModel, CoreAuthService, CoreSiteModel, CoreSiteService, ErrorExceptionResult, FilterModel} from 'ntk-cms-api';
 import {CmsToastrService} from '../../../../core/services/base/cmsToastr.service';
 import {PublicHelper} from '../../../../core/common/helper/publicHelper';
 
@@ -18,7 +18,7 @@ export class SelectionComponent implements OnInit {
 
     subManager = new Subscription();
     filterModel = new FilterModel();
-    dataModel: ErrorExcptionResult<CoreSiteModel>;
+    dataModel: ErrorExceptionResult<CoreSiteModel>;
 
     constructor(
         private coreAuthService: CoreAuthService,
@@ -69,7 +69,7 @@ export class SelectionComponent implements OnInit {
         );
     }
 
-    onActionAddFirstSite(model: ErrorExcptionResult<any>): void {
+    onActionAddFirstSite(model: ErrorExceptionResult<any>): void {
         if (model.IsSuccess) {
             let AuthModel: AuthRenewTokenModel;
             AuthModel = new AuthRenewTokenModel();

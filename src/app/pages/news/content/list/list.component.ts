@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
-  ErrorExcptionResult,
+  ErrorExceptionResult,
   FilterModel,
   NewsContentService,
   NewsContentModel,
@@ -37,7 +37,7 @@ export class NewsContentListComponent implements OnInit {
 
   filteModelContent = new FilterModel();
   filteModelCategory = new FilterModel();
-  dataModelResult: ErrorExcptionResult<NewsContentModel> = new ErrorExcptionResult<NewsContentModel>();
+  dataModelResult: ErrorExceptionResult<NewsContentModel> = new ErrorExceptionResult<NewsContentModel>();
   optionsCategorySelect: ComponentOptionNewsCategoryModel = new ComponentOptionNewsCategoryModel();
   modalModel: ComponentModalDataModel = new ComponentModalDataModel();
   optionsSearch: ComponentOptionSearchContentModel = new ComponentOptionSearchContentModel();

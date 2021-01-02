@@ -12,7 +12,7 @@ import {CmsToastrService} from 'src/app/core/services/base/cmsToastr.service';
 import {
     CoreEnumService,
     EnumModel,
-    ErrorExcptionResult,
+    ErrorExceptionResult,
     FormInfoModel,
     SmsMainApiPathModel,
     SmsMainApiPathService,
@@ -25,10 +25,10 @@ import {
 })
 export class SmsMainApiPathEditComponent implements OnInit {
 
-    dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+    dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
     formInfo: FormInfoModel = new FormInfoModel();
     dataModel: SmsMainApiPathModel = new SmsMainApiPathModel();
-    dataModelResult: ErrorExcptionResult<SmsMainApiPathModel> = new ErrorExcptionResult<SmsMainApiPathModel>();
+    dataModelResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
     id = 0;
     loadingStatus = false; // add one more property
     @Input()

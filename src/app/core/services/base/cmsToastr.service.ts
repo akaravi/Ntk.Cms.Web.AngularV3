@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
-import {ErrorExcptionResultBase} from 'ntk-cms-api';
+import {ErrorExceptionResultBase} from 'ntk-cms-api';
 
 @Injectable({
     providedIn: 'root'
@@ -145,7 +145,7 @@ export class CmsToastrService {
             this.toastr.error(message, 'Error!');
             return;
         }
-        let errorExceptionResult: ErrorExcptionResultBase;
+        let errorExceptionResult: ErrorExceptionResultBase;
         if (model.error) {
             errorExceptionResult = model.error;
             if (errorExceptionResult) {

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {ErrorExcptionResultBase} from 'ntk-cms-api';
+import {ErrorExceptionResultBase} from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
 import { CmsToastrService } from '../../services/base/cmsToastr.service';
 
@@ -17,7 +17,7 @@ export class PublicHelper {
     if (!model) {
       return 'Error';
     }
-    let errorExceptionResult: ErrorExcptionResultBase;
+    let errorExceptionResult: ErrorExceptionResultBase;
     if (model.error) {
       errorExceptionResult = model.error;
       if (errorExceptionResult) {

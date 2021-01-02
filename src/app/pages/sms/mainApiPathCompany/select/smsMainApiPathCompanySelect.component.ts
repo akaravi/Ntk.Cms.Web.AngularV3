@@ -3,7 +3,7 @@ import { TREE_ACTIONS, ITreeOptions, KEYS } from 'angular-tree-component';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 import {
   FilterModel,
-  ErrorExcptionResult,
+  ErrorExceptionResult,
   SmsMainApiPathCompanyService,
   SmsMainApiPathCompanyModel,
 } from 'ntk-cms-api';
@@ -26,7 +26,7 @@ export class SmsMainApiPathCompanySelectComponent implements OnInit {
   loadingStatus = false; // add one more property
 
   filteModelCategory = new FilterModel();
-  dataModelCategory: ErrorExcptionResult<any> = new ErrorExcptionResult<any>();
+  dataModelCategory: ErrorExceptionResult<any> = new ErrorExceptionResult<any>();
   optionsModelTree: ITreeOptions = {
     idField: 'id',
     displayField: 'Title',

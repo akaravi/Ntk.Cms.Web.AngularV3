@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CoreEnumService, EnumModel, ErrorExcptionResult, FormInfoModel, NewsContentModel, NewsContentService } from 'ntk-cms-api';
+import { CoreEnumService, EnumModel, ErrorExceptionResult, FormInfoModel, NewsContentModel, NewsContentService } from 'ntk-cms-api';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as Leaflet from 'leaflet';
 import { environment } from '../../../../../environments/environment';
@@ -17,8 +17,8 @@ export class NewsContentEditComponent implements OnInit, AfterViewInit {
   // @ViewChild('fromDate', { static: false }) fromDate: ElementRef;
   // @ViewChild('expireDate', { static: false }) expireDate: ElementRef;
 
-  dataModelResult: ErrorExcptionResult<NewsContentModel> = new ErrorExcptionResult<NewsContentModel>();
-  dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+  dataModelResult: ErrorExceptionResult<NewsContentModel> = new ErrorExceptionResult<NewsContentModel>();
+  dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
 
   loadingStatus = false;
   dataModel: NewsContentModel = new NewsContentModel();

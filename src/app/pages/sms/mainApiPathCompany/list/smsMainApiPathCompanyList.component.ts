@@ -7,7 +7,7 @@ import {
     SelectionType,
 } from '@swimlane/ngx-datatable';
 import {CmsToastrService} from 'src/app/core/services/base/cmsToastr.service';
-import {EnumSortType, ErrorExcptionResult, FilterModel, SmsMainApiPathCompanyService} from 'ntk-cms-api';
+import {EnumSortType, ErrorExceptionResult, FilterModel, SmsMainApiPathCompanyService} from 'ntk-cms-api';
 import {Router} from '@angular/router';
 import { PublicHelper } from 'src/app/core/common/helper/publicHelper';
 import { ComponentOptionSearchContentModel } from 'src/app/core/models/base/componentOptionSearchContentModel';
@@ -26,8 +26,8 @@ export class SmsMainApiPathCompanyListComponent implements OnInit {
     filteModelContent = new FilterModel();
     tableContentloading = false;
     tableContentSelected: Array<any> = [];
-    dataModelResult: ErrorExcptionResult<any> = new ErrorExcptionResult<any>();
-    dataModelResultViewModel: ErrorExcptionResult<any> = new ErrorExcptionResult<any>();
+    dataModelResult: ErrorExceptionResult<any> = new ErrorExceptionResult<any>();
+    dataModelResultViewModel: ErrorExceptionResult<any> = new ErrorExceptionResult<any>();
     columnMode = ColumnMode;
     selectionType = SelectionType;
     columnsContent: TableColumn[] = [

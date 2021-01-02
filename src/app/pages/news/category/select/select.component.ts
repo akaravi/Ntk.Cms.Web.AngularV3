@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ITreeOptions, KEYS, TreeComponent, TreeNode, TREE_ACTIONS } from '@circlon/angular-tree-component';
-import { ErrorExcptionResult, FilterModel, NewsCategoryModel, NewsCategoryService } from 'ntk-cms-api';
+import { ErrorExceptionResult, FilterModel, NewsCategoryModel, NewsCategoryService } from 'ntk-cms-api';
 import { ComponentOptionNewsCategoryModel } from 'src/app/core/models/news/componentOptionNewsCategoryModel';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 import {ActivatedRoute} from '@angular/router';
@@ -27,7 +27,7 @@ export class NewsCategorySelectComponent implements OnInit {
 
 
   filteModelCategory = new FilterModel();
-  dataModelCategory: ErrorExcptionResult<NewsCategoryModel> = new ErrorExcptionResult<NewsCategoryModel>();
+  dataModelCategory: ErrorExceptionResult<NewsCategoryModel> = new ErrorExceptionResult<NewsCategoryModel>();
 
   optionsModelTree: ITreeOptions = {
     idField: 'id',

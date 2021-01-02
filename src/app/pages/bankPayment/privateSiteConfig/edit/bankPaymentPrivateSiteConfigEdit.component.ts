@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 import {
     BankPaymentPrivateSiteConfigModel, BankPaymentPrivateSiteConfigService, CoreEnumService, EnumModel,
-    ErrorExcptionResult, FormInfoModel
+    ErrorExceptionResult, FormInfoModel
 } from 'ntk-cms-api';
 
 
@@ -26,10 +26,10 @@ export class BankPaymentPrivateSiteConfigEditComponent implements OnInit {
 
     formInfo: FormInfoModel = new FormInfoModel();
     dataModel: BankPaymentPrivateSiteConfigModel = new BankPaymentPrivateSiteConfigModel();
-    dataModelResult: ErrorExcptionResult<BankPaymentPrivateSiteConfigModel> = new ErrorExcptionResult<BankPaymentPrivateSiteConfigModel>();
+    dataModelResult: ErrorExceptionResult<BankPaymentPrivateSiteConfigModel> = new ErrorExceptionResult<BankPaymentPrivateSiteConfigModel>();
     id = 0;
 
-    dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+    dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
 
 
     @Input()

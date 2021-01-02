@@ -1,4 +1,4 @@
-import { CoreEnumService, EnumModel, ErrorExcptionResult, FormInfoModel, NewsCategoryService, NewsCategoryModel } from 'ntk-cms-api';
+import { CoreEnumService, EnumModel, ErrorExceptionResult, FormInfoModel, NewsCategoryService, NewsCategoryModel } from 'ntk-cms-api';
 import { Component, OnInit, Input, ViewChild, ChangeDetectorRef, Inject } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -49,7 +49,7 @@ export class NewsCategoryEditComponent implements OnInit {
   loadingStatus = false; // add one more property
 
 
-  dataModelResult: ErrorExcptionResult<NewsCategoryModel> = new ErrorExcptionResult<NewsCategoryModel>();
+  dataModelResult: ErrorExceptionResult<NewsCategoryModel> = new ErrorExceptionResult<NewsCategoryModel>();
   dataModel: NewsCategoryModel = new NewsCategoryModel();
   id = 0;
   parentId = -1;
@@ -58,7 +58,7 @@ export class NewsCategoryEditComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+  dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
   ngOnInit(): void {
     // get Id
     if (this.id === 0) {

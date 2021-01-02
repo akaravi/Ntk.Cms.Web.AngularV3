@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { BankPaymentPublicConfigModel, BankPaymentPublicConfigService, CoreEnumService, EnumModel, ErrorExcptionResult, FormInfoModel } from 'ntk-cms-api';
+import { BankPaymentPublicConfigModel, BankPaymentPublicConfigService, CoreEnumService, EnumModel, ErrorExceptionResult, FormInfoModel } from 'ntk-cms-api';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 
 
@@ -13,13 +13,13 @@ import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 export class BankPaymentPublicConfigAddComponent implements OnInit {
 
     private dateModleInput: any;
-    dataModelResult: ErrorExcptionResult<BankPaymentPublicConfigModel> = new ErrorExcptionResult<BankPaymentPublicConfigModel>();
+    dataModelResult: ErrorExceptionResult<BankPaymentPublicConfigModel> = new ErrorExceptionResult<BankPaymentPublicConfigModel>();
     dataModel: BankPaymentPublicConfigModel = new BankPaymentPublicConfigModel();
 
     @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
     formInfo: FormInfoModel = new FormInfoModel();
-    dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+    dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
     loadingStatus = false; // add one more property
 
     constructor(

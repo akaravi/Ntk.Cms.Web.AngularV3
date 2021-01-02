@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
 import { ITreeOptions, KEYS, TreeComponent, TreeNode, TREE_ACTIONS } from '@circlon/angular-tree-component';
-import { ErrorExcptionResult, FilterModel, CoreModuleTagCategoryModel, CoreModuleTagCategoryService } from 'ntk-cms-api';
+import { ErrorExceptionResult, FilterModel, CoreModuleTagCategoryModel, CoreModuleTagCategoryService } from 'ntk-cms-api';
 import { ComponentOptionCoreModuleTagCategoryModel } from 'src/app/core/models/coreModule/componentOptionCoreModuleTagCategoryModel';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
 
@@ -28,7 +28,7 @@ export class CoreModuleTagCategorySelectComponent implements OnInit {
 
 
   filteModelCategory = new FilterModel();
-  dataModelCategory: ErrorExcptionResult<CoreModuleTagCategoryModel> = new ErrorExcptionResult<CoreModuleTagCategoryModel>();
+  dataModelCategory: ErrorExceptionResult<CoreModuleTagCategoryModel> = new ErrorExceptionResult<CoreModuleTagCategoryModel>();
 
   optionsModelTree: ITreeOptions = {
     idField: 'id',

@@ -1,5 +1,5 @@
 import {
-   CoreEnumService, EnumModel, ErrorExcptionResult, FormInfoModel,
+   CoreEnumService, EnumModel, ErrorExceptionResult, FormInfoModel,
   CoreModuleTagService, CoreModuleTagModel
 } from 'ntk-cms-api';
 import { Component, OnInit, Input, ViewChild, ChangeDetectorRef, Inject } from '@angular/core';
@@ -50,7 +50,7 @@ export class CoreModuleTagEditComponent implements OnInit {
   loadingStatus = false; // add one more property
 
 
-  dataModelResult: ErrorExcptionResult<CoreModuleTagModel> = new ErrorExcptionResult<CoreModuleTagModel>();
+  dataModelResult: ErrorExceptionResult<CoreModuleTagModel> = new ErrorExceptionResult<CoreModuleTagModel>();
   dataModel: CoreModuleTagModel = new CoreModuleTagModel();
   id = 0;
   parentId = -1;
@@ -59,7 +59,7 @@ export class CoreModuleTagEditComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+  dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
   ngOnInit(): void {
     // get Id
     if (this.id === 0) {

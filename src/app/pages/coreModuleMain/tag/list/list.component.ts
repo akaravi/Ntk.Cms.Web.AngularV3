@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ErrorExcptionResult, FilterModel, CoreModuleTagService, CoreModuleTagModel, CoreModuleTagCategoryModel, FilterDataModel } from 'ntk-cms-api';
+import { ErrorExceptionResult, FilterModel, CoreModuleTagService, CoreModuleTagModel, CoreModuleTagCategoryModel, FilterDataModel } from 'ntk-cms-api';
 
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CoreModuleNetwork } from '../../coreModule.network';
@@ -32,7 +32,7 @@ export class CoreModuleTagListComponent implements OnInit {
 
   filteModelContent = new FilterModel();
   filteModelCategory = new FilterModel();
-  dataModelResult: ErrorExcptionResult<CoreModuleTagModel> = new ErrorExcptionResult<CoreModuleTagModel>();
+  dataModelResult: ErrorExceptionResult<CoreModuleTagModel> = new ErrorExceptionResult<CoreModuleTagModel>();
   optionsCategorySelect: ComponentOptionCoreModuleTagCategoryModel = new ComponentOptionCoreModuleTagCategoryModel();
   modalModel: ComponentModalDataModel = new ComponentModalDataModel();
   optionsSearch: ComponentOptionSearchContentModel = new ComponentOptionSearchContentModel();

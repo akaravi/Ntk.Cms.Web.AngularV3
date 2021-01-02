@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { TREE_ACTIONS, ITreeOptions, KEYS } from 'angular-tree-component';
 import { CmsToastrService } from 'src/app/core/services/base/cmsToastr.service';
-import { ErrorExcptionResult, FilterModel, SmsMainApiPathModel, SmsMainApiPathService } from 'ntk-cms-api';
+import { ErrorExceptionResult, FilterModel, SmsMainApiPathModel, SmsMainApiPathService } from 'ntk-cms-api';
 import { ComponentOptionSmsMainApiPathModel } from 'src/app/core/models/sms/componentOptionSmsMainApiPathModel';
 
 
@@ -23,7 +23,7 @@ export class SmsMainApiPathSelectComponent implements OnInit {
 
 
   filteModelCategory = new FilterModel();
-  dataModelCategory: ErrorExcptionResult<any> = new ErrorExcptionResult<any>();
+  dataModelCategory: ErrorExceptionResult<any> = new ErrorExceptionResult<any>();
   optionsModelTree: ITreeOptions = {
     idField: 'id',
     displayField: 'Title',

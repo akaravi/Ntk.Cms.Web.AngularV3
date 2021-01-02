@@ -3,7 +3,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import * as Leaflet from 'leaflet';
 import {environment} from '../../../../../environments/environment';
 import {FormControl, FormGroup} from '@angular/forms';
-import {CoreEnumService, EnumModel, ErrorExcptionResult, FormInfoModel, NewsContentModel, NewsContentService} from 'ntk-cms-api';
+import {CoreEnumService, EnumModel, ErrorExceptionResult, FormInfoModel, NewsContentModel, NewsContentService} from 'ntk-cms-api';
 import {ActivatedRoute} from '@angular/router';
 import KTWizard from '../../../../../assets/js/components/wizard';
 import {KTUtil} from '../../../../../assets/js/components/util';
@@ -19,8 +19,8 @@ export class NewsContentAddComponent implements OnInit, AfterViewInit {
 
     @ViewChild('wizard', {static: true}) el: ElementRef;
 
-    dataModelResult: ErrorExcptionResult<NewsContentModel> = new ErrorExcptionResult<NewsContentModel>();
-    dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+    dataModelResult: ErrorExceptionResult<NewsContentModel> = new ErrorExceptionResult<NewsContentModel>();
+    dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
 
     loadingStatus = false;
     dataModel = new NewsContentModel();

@@ -12,7 +12,7 @@ import {FormGroup} from '@angular/forms';
 import {
     CoreEnumService,
     EnumModel,
-    ErrorExcptionResult,
+    ErrorExceptionResult,
     FormInfoModel,
     SmsMainApiPathCompanyModel,
     SmsMainApiPathCompanyService,
@@ -37,10 +37,10 @@ export class SmsMainApiPathCompanyAddComponent implements OnInit {
 
     loadingStatus = false; // add one more property
     private dateModleInput: any;
-    dataModelResult: ErrorExcptionResult<SmsMainApiPathCompanyModel> = new ErrorExcptionResult<SmsMainApiPathCompanyModel>();
+    dataModelResult: ErrorExceptionResult<SmsMainApiPathCompanyModel> = new ErrorExceptionResult<SmsMainApiPathCompanyModel>();
     dataModel: SmsMainApiPathCompanyModel = new SmsMainApiPathCompanyModel();
     @ViewChild('vform', {static: false}) formGroup: FormGroup;
-    dataModelEnumRecordStatusResult: ErrorExcptionResult<EnumModel> = new ErrorExcptionResult<EnumModel>();
+    dataModelEnumRecordStatusResult: ErrorExceptionResult<EnumModel> = new ErrorExceptionResult<EnumModel>();
     formInfo: FormInfoModel = new FormInfoModel();
 
     constructor(
